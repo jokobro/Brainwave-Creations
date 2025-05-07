@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("References")]
+    [SerializeField] private InputActionAsset inputActions;
+    
     Rigidbody2D rigidBody;
 
     [Header("Player Settings")]
@@ -15,7 +17,7 @@ public class PlayerController : MonoBehaviour
     Vector2 inputMovement;
 
     [SerializeField] private List <GameObject> PickedUpObjects = new List<GameObject>();
-    [SerializeField] private InputActionAsset inputActions;
+    
     private InputActionMap moveActionMap;
 
     private void Awake()
