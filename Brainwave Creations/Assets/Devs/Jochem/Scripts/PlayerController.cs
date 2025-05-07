@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
@@ -10,11 +8,10 @@ public class PlayerController : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] private float jumpForce = 4f; // tweaken kijken wat goede waarde is 
 
-    Vector2 inputMovement;
-    
     private bool isGrounded = true;
+    private float moveSpeed = 6f;
+    Vector2 inputMovement;
 
-    
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -22,9 +19,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
+        Movement();
     }
 
+    private void Movement()
+    {
+        rigidBody.velocity = new Vector2(inputMovement.x * moveSpeed, rigidBody.velocity.y);
+    }
 
     public void HandleMoving(InputAction.CallbackContext context)
     {
@@ -45,6 +46,20 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-        }   
+        }
+    }
+
+    public void PickupThrowableObjects(int id, GameObject pickUp)
+    {
+        switch (id)
+        {
+            case 0:
+                Debug.Log("object met nummer 1 is opgepakt");
+                break;
+                case 1:
+                Debug.Log("object met nummer 2 is opgepakt");
+                break ;
+        }
+
     }
 }
