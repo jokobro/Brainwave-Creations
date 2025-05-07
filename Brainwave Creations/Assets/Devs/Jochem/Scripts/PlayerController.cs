@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class PlayerController : MonoBehaviour
 {
     [Header("References")]
@@ -12,9 +14,14 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed = 6f;
     Vector2 inputMovement;
 
+    [SerializeField] private List <GameObject> PickedUpObjects = new List<GameObject>();
+    [SerializeField] private InputActionAsset inputActions;
+    private InputActionMap moveActionMap;
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        moveActionMap = inputActions.FindActionMap("Move");
     }
 
     private void Update()
@@ -47,6 +54,10 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+        if (collision.gameObject.CompareTag("Side wall"))
+        {
+            moveActionMap.Disable();
+        }
     }
 
     public void PickupThrowableObjects(int id, GameObject pickUp)
@@ -55,11 +66,15 @@ public class PlayerController : MonoBehaviour
         {
             case 0:
                 Debug.Log("object met nummer 1 is opgepakt");
+                PickedUpObjects.Add(pickUp);
+                pickUp.SetActive(false);
                 break;
-                case 1:
+            case 1:
                 Debug.Log("object met nummer 2 is opgepakt");
-                break ;
+                PickedUpObjects.Add(pickUp);
+                pickUp.SetActive(false);
+                
+                break;
         }
-
     }
 }
