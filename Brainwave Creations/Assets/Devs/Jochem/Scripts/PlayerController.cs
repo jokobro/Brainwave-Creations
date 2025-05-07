@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 4f; // tweaken kijken wat goede waarde is 
-    private bool isGrounded = true;
-
+    [Header("References")]
     Rigidbody2D rigidBody;
 
-    
-    
+    [Header("Player Settings")]
+    [SerializeField] private float jumpForce = 4f; // tweaken kijken wat goede waarde is 
 
+    Vector2 inputMovement;
+    
+    private bool isGrounded = true;
+
+    
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -20,6 +23,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         
+    }
+
+
+    public void HandleMoving(InputAction.CallbackContext context)
+    {
+        inputMovement = context.ReadValue<Vector2>();
     }
 
     public void HandeleJumping(InputAction.CallbackContext context)
