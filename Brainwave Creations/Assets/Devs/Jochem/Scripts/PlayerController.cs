@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
-        rigidBody.velocity = new Vector2(inputMovement.x * moveSpeed, rigidBody.velocity.y);
+        rigidBody.linearVelocity = new Vector2(inputMovement.x * moveSpeed, rigidBody.linearVelocity.y);
     }
 
     public void HandleMoving(InputAction.CallbackContext context)
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded && context.performed)
         {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+            rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, jumpForce);
             isGrounded = false;
         }
     }
