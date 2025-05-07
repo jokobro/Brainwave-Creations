@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         moveActionMap = inputActions.FindActionMap("Move");
+        moveActionMap.Enable();
     }
 
     private void Update()
