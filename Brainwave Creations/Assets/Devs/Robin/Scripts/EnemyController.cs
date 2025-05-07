@@ -31,7 +31,14 @@ public class EnemyController : MonoBehaviour
 
         }else if(collision.gameObject.CompareTag("Side wall"))
         {
-           
+            if (transform.rotation.x ==0)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
         }
     }
 }
