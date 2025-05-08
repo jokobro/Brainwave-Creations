@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Itch_enemy_0: -8525692380708102605
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
