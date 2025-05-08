@@ -28,8 +28,12 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(collision.gameObject);
+        }
+    }
 
-        }else if(collision.gameObject.CompareTag("Side wall"))
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Side wall"))
         {
             if (transform.rotation.x == 0)
             {

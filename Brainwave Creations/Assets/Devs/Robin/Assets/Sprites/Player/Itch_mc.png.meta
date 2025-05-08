@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Itch_mc_0: 5286708010003267528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
