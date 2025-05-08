@@ -10,7 +10,7 @@ public class BombBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy structure"))
         {
             Rigidbody2D rb2D = collision.gameObject.GetComponent<Rigidbody2D>();
-            rb2D.AddForce(transform.right * -explosionForce, ForceMode2D.Impulse);
+            rb2D.AddForce(transform.right * explosionForce, ForceMode2D.Impulse);
             Destroy(gameObject);
         }
     }
