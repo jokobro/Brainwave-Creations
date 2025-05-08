@@ -1,0 +1,8 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainMenuSytleSheet.uss?fileID=7433441132597879392&amp;guid=d27aaee982a1be944a1d6e3322f34c45&amp;type=3#MainMenuSytleSheet" />
+    <engine:VisualElement name="container" style="flex-grow: 1; color: rgb(255, 255, 255); -unity-background-image-tint-color: rgb(253, 253, 253); background-color: rgba(255, 255, 255, 0); font-size: 80px;">
+        <engine:Label text="Main Menu" name="Label" class="header" style="font-size: 79px;" />
+        <engine:Button name="StartGameButton" class="button" style="font-size: 25px; width: 270px; height: 80px; -unity-text-align: middle-center; bottom: -25px; background-image: url(&quot;project://database/Assets/Assets/Buttons/Itch_PlayButton.png?fileID=-9166793106590419807&amp;guid=93de6c7fc82a14140a8261aafe809c75&amp;type=3#Itch_PlayButton_0&quot;);" />
+        <engine:Button name="QuitButton" class="button" style="font-size: 25px; width: 270px; height: 80px; -unity-text-align: middle-center; bottom: -41px; background-image: url(&quot;project://database/Assets/Assets/Buttons/Itch_ExitButton.png?fileID=1869349743869341181&amp;guid=166a43a627d6f7a4db0f0cc4c10b8d06&amp;type=3#Itch_ExitButton_0&quot;);" />
+    </engine:VisualElement>
+</engine:UXML>

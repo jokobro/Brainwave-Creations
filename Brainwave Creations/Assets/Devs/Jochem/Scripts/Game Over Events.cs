@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+
 public class GameOverEvents : MonoBehaviour
 {
     private UIDocument UIDocument;
@@ -8,6 +9,7 @@ public class GameOverEvents : MonoBehaviour
 
     private void Awake()
     {
+        UIDocument = GetComponent<UIDocument>();
         restartButton = UIDocument.rootVisualElement.Q("RestartButton") as Button;
         restartButton.RegisterCallback<ClickEvent>(OnrestartClickEvent);
     }
