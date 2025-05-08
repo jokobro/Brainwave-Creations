@@ -53,6 +53,15 @@ public class PlayerController : MonoBehaviour
     public void HandleMoving(InputAction.CallbackContext context)
     {
         inputMovement = context.ReadValue<Vector2>();
+
+        if (inputMovement.x == -1)
+        {
+            gameObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (inputMovement.x == 1) 
+        {
+            gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     public void HandeleJumping(InputAction.CallbackContext context)
@@ -69,6 +78,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            moveActionMap.Enable();
         }
         else if (collision.gameObject.CompareTag("Side wall"))
         {
