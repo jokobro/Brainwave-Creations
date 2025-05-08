@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -9,10 +10,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionAsset inputActions;
     
     Rigidbody2D rigidBody;
+    Transform catapultBombSpawn;
 
     [Header("Player Settings")]
     [SerializeField] private float jumpForce = 4f; // tweaken kijken wat goede waarde is 
+    [SerializeField] int interactionRange;
+    [SerializeField] LayerMask interactableLayer;
 
+    private float timer = 0;
+    private bool timerIsActive = false;
     private bool isGrounded = true;
     private float moveSpeed = 6f;
     Vector2 inputMovement;
@@ -23,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        catapultBombSpawn = GameObject.FindGameObjectWithTag("Catapult spawn").gameObject.transform;
         rigidBody = GetComponent<Rigidbody2D>();
         moveActionMap = inputActions.FindActionMap("Move");
         moveActionMap.Enable();
@@ -31,6 +38,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Movement();
+
+       if(timerIsActive)
+       {
+            timer -= Time.deltaTime;
+       }
     }
 
     private void Movement()
@@ -58,7 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
-        if (collision.gameObject.CompareTag("Side wall"))
+        else if (collision.gameObject.CompareTag("Side wall"))
         {
             moveActionMap.Disable();
         }
@@ -83,6 +95,26 @@ public class PlayerController : MonoBehaviour
                 PickedUpObjects.Add(pickUp);
                 pickUp.SetActive(false);
                 break;
+        }
+    }
+
+    public void PlaceBombOnCatapult()
+    {
+        timerIsActive = true;
+        if (timer <= 0)
+        {
+           Vector2 forward = transform.TransformDirection(Vector2.right);
+           RaycastHit2D hit = Physics2D.Raycast(transform.position, forward, interactionRange,interactableLayer);     
+           GameObject hitCollider = hit.collider.gameObject;
+   
+            if (hitCollider.tag == "Catapult")
+            {
+                var bomb = Instantiate(PickedUpObjects[0].gameObject, catapultBombSpawn.transform.position, Quaternion.identity, catapultBombSpawn);
+                bomb.gameObject.SetActive(true);
+                PickedUpObjects.RemoveAt(0);
+                timerIsActive = false;
+                timer = 1;      
+             }
         }
     }
 }
