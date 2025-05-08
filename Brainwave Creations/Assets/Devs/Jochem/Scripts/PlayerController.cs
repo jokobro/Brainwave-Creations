@@ -108,11 +108,11 @@ public class PlayerController : MonoBehaviour
      
             if (hit.collider !=null && hit.collider.gameObject.name == "Catapult")
             {
-                var bomb = Instantiate(PickedUpObjects[0].gameObject, catapultBombSpawn.transform.position, Quaternion.identity, catapultBombSpawn);
+                var bomb = Instantiate(PickedUpObjects[0].gameObject, catapultBombSpawn.position, Quaternion.identity, catapultBombSpawn);
                 bomb.gameObject.SetActive(true);
                 PickedUpObjects.RemoveAt(0);
                 timerIsActive = false;
-                timer = 1;      
+                timer = 2;      
             }
         }
     }
