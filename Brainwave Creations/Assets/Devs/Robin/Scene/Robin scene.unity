@@ -489,15 +489,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3090248589338589810, guid: 993bd4f2400514340a83c71490aec9a0, type: 3}
       propertyPath: m_Name
-      value: catapult (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3090248589338589810, guid: 993bd4f2400514340a83c71490aec9a0, type: 3}
-      propertyPath: m_Layer
-      value: 19
+      value: Catapult
       objectReference: {fileID: 0}
     - target: {fileID: 7794762204357440296, guid: 993bd4f2400514340a83c71490aec9a0, type: 3}
-      propertyPath: m_Layer
-      value: 19
+      propertyPath: m_TagString
+      value: Bomb spawn point
       objectReference: {fileID: 0}
     - target: {fileID: 8278199877248768708, guid: 993bd4f2400514340a83c71490aec9a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -538,14 +534,6 @@ PrefabInstance:
     - target: {fileID: 8278199877248768708, guid: 993bd4f2400514340a83c71490aec9a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9029480034768174052, guid: 993bd4f2400514340a83c71490aec9a0, type: 3}
-      propertyPath: m_Layer
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 9029480034768174052, guid: 993bd4f2400514340a83c71490aec9a0, type: 3}
-      propertyPath: m_TagString
-      value: Catapult
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

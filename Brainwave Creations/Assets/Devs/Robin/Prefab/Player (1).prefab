@@ -145,7 +145,7 @@ MonoBehaviour:
   interactionRange: 2
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 524288
+    m_Bits: 131072
   PickedUpObjects: []
 --- !u!114 &2994353770092949588
 MonoBehaviour:

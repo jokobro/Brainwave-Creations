@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        catapultBombSpawn = GameObject.FindGameObjectWithTag("Catapult spawn").gameObject.transform;
+        catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;
         rigidBody = GetComponent<Rigidbody2D>();
         moveActionMap = inputActions.FindActionMap("Move");
         moveActionMap.Enable();
@@ -105,16 +105,15 @@ public class PlayerController : MonoBehaviour
         {
            Vector2 forward = transform.TransformDirection(Vector2.right);
            RaycastHit2D hit = Physics2D.Raycast(transform.position, forward, interactionRange,interactableLayer);     
-           GameObject hitCollider = hit.collider.gameObject;
-   
-            if (hitCollider.tag == "Catapult")
+     
+            if (hit.collider !=null && hit.collider.gameObject.name == "Catapult")
             {
                 var bomb = Instantiate(PickedUpObjects[0].gameObject, catapultBombSpawn.transform.position, Quaternion.identity, catapultBombSpawn);
                 bomb.gameObject.SetActive(true);
                 PickedUpObjects.RemoveAt(0);
                 timerIsActive = false;
                 timer = 1;      
-             }
+            }
         }
     }
 }

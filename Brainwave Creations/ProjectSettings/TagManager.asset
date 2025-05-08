@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Side wall
   - Void
+  - Bomb spawn point
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Interactable
   - 
   - 
   - 
