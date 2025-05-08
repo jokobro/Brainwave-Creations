@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -60,6 +61,11 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Side wall"))
         {
             moveActionMap.Disable();
+        }
+        if (collision.gameObject.CompareTag("Void"))
+        {
+            SceneManager.LoadScene(2);
+            Debug.Log("Void geraakt Game Over");
         }
     }
 
