@@ -7,6 +7,7 @@ public class CatapultBehaviour : MonoBehaviour
     private HingeJoint2D joint;
     private JointMotor2D motor;
 
+    [Header("Motor properties")]
     [SerializeField] private float motorSpeed;
     [SerializeField] private float motorForce;
     [SerializeField] private float resetTimer;
@@ -16,12 +17,6 @@ public class CatapultBehaviour : MonoBehaviour
     {
         joint = GetComponent<HingeJoint2D>();
         motor = joint.motor;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
     }
     // turns the motor of the hingeJoint off and applies all the multiplier variables, and then turns it on to apply all of it at once.
     private void LaunchCatapult()

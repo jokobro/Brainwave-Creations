@@ -8,6 +8,7 @@ TagManager:
   - Side wall
   - Void
   - Bomb spawn point
+  - Enemy structure
   layers:
   - Default
   - TransparentFX
