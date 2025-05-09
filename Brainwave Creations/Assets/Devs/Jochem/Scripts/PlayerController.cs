@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
            Vector2 forward = transform.TransformDirection(Vector2.right);
            RaycastHit2D hit = Physics2D.Raycast(transform.position, forward, interactionRange,interactableLayer);     
      
-            if (hit.collider !=null && hit.collider.gameObject.name == "Catapult")
+            if (hit.collider !=null && hit.collider.gameObject.name == "Bomb catapult")
             {
                 var bomb = Instantiate(PickedUpObjects[0], catapultBombSpawn.position, Quaternion.identity);
                 bomb.gameObject.SetActive(true);

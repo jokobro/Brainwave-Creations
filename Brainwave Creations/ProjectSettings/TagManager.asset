@@ -9,6 +9,8 @@ TagManager:
   - Void
   - Bomb spawn point
   - Enemy structure
+  - Enemy
+  - Bomb
   layers:
   - Default
   - TransparentFX

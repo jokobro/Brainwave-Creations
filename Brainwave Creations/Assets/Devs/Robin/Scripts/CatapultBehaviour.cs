@@ -39,7 +39,15 @@ public class CatapultBehaviour : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // for now is on touch
-        LaunchCatapult();
+        // for the player to use during platforming
+        if (gameObject.name == "Player catapult")
+        {  
+            LaunchCatapult();
+        }
+        // to slingshot bombs at the enemy structure
+        else if(gameObject.name == "Bomb catapult" && collision.gameObject.tag == "Bomb")
+        {
+            LaunchCatapult();
+        }
     }
 }
