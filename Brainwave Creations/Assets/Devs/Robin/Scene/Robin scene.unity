@@ -1144,7 +1144,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1545201041823388590, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.24
+      value: -31.28
       objectReference: {fileID: 0}
     - target: {fileID: 1545201041823388590, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1181,6 +1181,22 @@ PrefabInstance:
     - target: {fileID: 1545201041823388590, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: motorForce
+      value: 510
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: motorSpeed
+      value: 510
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: zoomOutAmount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: waitForZoomOut
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6164475217749139410, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: m_SortingOrder
