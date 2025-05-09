@@ -9,10 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/main menu.unity
     guid: fbd14164c38ead844bdc8bac275d4955
   - enabled: 1
-    path: Assets/Devs/Jochem/Test scene/Test Scene Jochem.unity
-    guid: 7fc93b488743ff74386479af4901f3ad
+    path: Assets/Devs/Robin/Scene/Robin scene.unity
+    guid: bfa3051e48ddd47439c785beb76aa28e
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 4ab18db374fe10c408c1b6112f83dcf6
+  - enabled: 1
+    path: Assets/Scenes/VictoryScene.unity
+    guid: ae5cf5744e59e36469dc09626a532960
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
