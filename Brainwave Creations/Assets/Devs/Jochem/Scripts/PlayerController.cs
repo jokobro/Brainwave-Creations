@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             moveActionMap.Disable();
         }
-        if (collision.gameObject.CompareTag("Void"))
+        if (collision.gameObject.CompareTag("Void") || collision.gameObject.CompareTag("Enemy"))
         {
             SceneManager.LoadScene(2);
             Debug.Log("Void geraakt Game Over");
