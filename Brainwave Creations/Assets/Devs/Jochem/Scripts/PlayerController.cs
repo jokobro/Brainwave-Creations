@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
                 bomb.gameObject.SetActive(true);
                 PickedUpObjects.RemoveAt(0);
                 timerIsActive = false;
-                timer = 2;      
+                timer = 6;      
             }
         }
     }
