@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/MainMenuSytleSheet.uss?fileID=7433441132597879392&amp;guid=d27aaee982a1be944a1d6e3322f34c45&amp;type=3#MainMenuSytleSheet" />
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheet/MainMenuSytleSheet.uss?fileID=7433441132597879392&amp;guid=d27aaee982a1be944a1d6e3322f34c45&amp;type=3#MainMenuSytleSheet" />
     <engine:VisualElement style="flex-grow: 1;">
-        <engine:Label text="Label" class="header" />
+        <engine:Label text="Victory" class="header" style="font-size: 90px; align-self: center; bottom: -20px;" />
     </engine:VisualElement>
 </engine:UXML>
