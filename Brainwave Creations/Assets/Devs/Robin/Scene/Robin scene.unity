@@ -1165,6 +1165,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomb catapult
       objectReference: {fileID: 0}
+    - target: {fileID: 7252876227858558744, guid: dc89e892104fc554bb3efee5db4ec5c5, type: 3}
+      propertyPath: zoomAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252876227858558744, guid: dc89e892104fc554bb3efee5db4ec5c5, type: 3}
+      propertyPath: waitForZoom
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252876227858558744, guid: dc89e892104fc554bb3efee5db4ec5c5, type: 3}
+      propertyPath: zoomOutAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252876227858558744, guid: dc89e892104fc554bb3efee5db4ec5c5, type: 3}
+      propertyPath: waitForZoomOut
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1229,6 +1245,14 @@ PrefabInstance:
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: resetTimer
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: zoomOutAmount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: waitForZoomOut
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8205573815678046048, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: m_Name
