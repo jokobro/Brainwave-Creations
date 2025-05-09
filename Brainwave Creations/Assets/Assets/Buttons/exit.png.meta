@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 93de6c7fc82a14140a8261aafe809c75
+guid: 3b74f34112efd434f8f33a403a11e8a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9166793106590419807
-    second: Itch_PlayButton_0
+      213: -4781373940957465942
+    second: exit_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Itch_PlayButton_0
+      name: exit_0
       rect:
         serializedVersion: 2
-        x: 159
-        y: 459
-        width: 638
-        height: 209
+        x: 717
+        y: 537
+        width: 592
+        height: 309
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a4bd20cc3209c080800000000000000
-      internalID: -9166793106590419807
+      spriteID: aa2bbe6cbb525adb0800000000000000
+      internalID: -4781373940957465942
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Itch_PlayButton_0: -9166793106590419807
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

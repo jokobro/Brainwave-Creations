@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Itch_ExitButton_0: 1869349743869341181
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
