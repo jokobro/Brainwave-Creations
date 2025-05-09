@@ -159,6 +159,8 @@ MonoBehaviour:
   motorSpeed: 200
   motorForce: 200
   resetTimer: 1
+  waitForZoomOut: 5
+  zoomOutAmount: 10
 --- !u!60 &5067794856817627560
 PolygonCollider2D:
   m_ObjectHideFlags: 0
