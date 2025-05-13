@@ -1,5 +1,5 @@
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private InputActionAsset inputActions;
-    
+
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
 
     [Header("Player Settings")]
-    [SerializeField] private float jumpForce = 4f; // tweaken kijken wat goede waarde is 
+    [SerializeField] private float jumpForce = 4; // tweaken kijken wat goede waarde is 
     [SerializeField] int interactionRange;
     [SerializeField] LayerMask interactableLayer;
 
@@ -23,13 +23,14 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed = 6f;
     Vector2 inputMovement;
 
-    [SerializeField] private List <GameObject> PickedUpObjects = new List<GameObject>();
-    
+    [SerializeField] private List<GameObject> PickedUpObjects = new List<GameObject>();
+
     private InputActionMap moveActionMap;
+
 
     private void Awake()
     {
-        catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;
+        /*catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
         rigidBody = GetComponent<Rigidbody2D>();
         moveActionMap = inputActions.FindActionMap("Move");
         moveActionMap.Enable();
@@ -39,10 +40,10 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
 
-       if(timerIsActive)
-       {
+        if (timerIsActive)
+        {
             timer -= Time.deltaTime;
-       }
+        }
     }
 
     private void Movement()
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
-        else if (inputMovement.x == 1) 
+        else if (inputMovement.x == 1)
         {
             gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
@@ -91,6 +92,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+   
+
     public void PickupThrowableObjects(int id, GameObject pickUp)
     {
         switch (id)
@@ -113,16 +116,16 @@ public class PlayerController : MonoBehaviour
         timerIsActive = true;
         if (timer <= 0)
         {
-           Vector2 forward = transform.TransformDirection(Vector2.right);
-           RaycastHit2D hit = Physics2D.Raycast(transform.position, forward, interactionRange,interactableLayer);     
-     
-            if (hit.collider !=null && hit.collider.gameObject.name == "Bomb catapult")
+            Vector2 forward = transform.TransformDirection(Vector2.right);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, forward, interactionRange, interactableLayer);
+
+            if (hit.collider != null && hit.collider.gameObject.name == "Bomb catapult")
             {
                 var bomb = Instantiate(PickedUpObjects[0], catapultBombSpawn.position, Quaternion.identity);
                 bomb.gameObject.SetActive(true);
                 PickedUpObjects.RemoveAt(0);
                 timerIsActive = false;
-                timer = 6;      
+                timer = 6;
             }
         }
     }
