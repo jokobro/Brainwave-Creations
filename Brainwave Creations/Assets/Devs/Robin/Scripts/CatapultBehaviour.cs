@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class CatapultBehaviour : MonoBehaviour
 {
@@ -8,11 +9,14 @@ public class CatapultBehaviour : MonoBehaviour
     private JointMotor2D motor;
     private Camera mainCamera;
     private float defaultCameraSize;
+    private Rigidbody2D playerRb;
+    [SerializeField] GameObject location;
 
     [Header("Motor properties")]
     [SerializeField] private float motorSpeed;
     [SerializeField] private float motorForce;
     [SerializeField] private float resetTimer;
+    [SerializeField] private bool playerAimInput = false;
 
     [Header("zoom out properties")]
     [SerializeField] private float waitForZoomOut;
@@ -23,21 +27,24 @@ public class CatapultBehaviour : MonoBehaviour
     {
         joint = GetComponent<HingeJoint2D>();
         motor = joint.motor;
+        playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         defaultCameraSize = mainCamera.orthographicSize;
     }
     // turns the motor of the hingeJoint off and applies all the multiplier variables, and then turns it on to apply all of it at once.
-    private void LaunchCatapult()
+    private IEnumerator LaunchCatapult()
     {
-       joint.useMotor = false;
-       joint.useLimits = false;
-       motor.motorSpeed = motorSpeed;
-       motor.maxMotorTorque = motorForce;
-       joint.motor = motor;
-       joint.useMotor = true;
-       StartCoroutine(ResetCatapult());    
+        yield return new WaitUntil(() => playerAimInput == true);
+        joint.useMotor = false;
+        joint.useLimits = false;
+        motor.motorSpeed = motorSpeed;
+        motor.maxMotorTorque = motorForce;
+        joint.motor = motor;      
+        joint.useMotor = true;
+        playerRb.GetComponent<PlayerController>().enabled = false;
+        playerRb.AddForce(location.transform.position - playerRb.transform.position.normalized * motorForce);
+        StartCoroutine(ResetCatapult());    
     }
-    
     // waits a set amount of seconds and then sets the limit in degrees back to the starting position
     private IEnumerator ResetCatapult()
     {
@@ -51,13 +58,13 @@ public class CatapultBehaviour : MonoBehaviour
         if (gameObject.name == "Player catapult")
         {
             StartCoroutine(CameraZoomOut());
-            LaunchCatapult();
+            StartCoroutine(LaunchCatapult());
         }
         // to slingshot bombs at the enemy structure
         else if(gameObject.name == "Bomb catapult" && collision.gameObject.tag == "Bomb")
         {
             StartCoroutine(CameraZoomOut());
-            LaunchCatapult();
+            StartCoroutine(LaunchCatapult());
         }
     }
 
