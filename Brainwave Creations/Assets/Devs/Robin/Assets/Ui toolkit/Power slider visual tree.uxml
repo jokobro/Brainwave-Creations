@@ -1,0 +1,4 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Devs/Robin/Assets/Ui%20toolkit/Power%20slider%20style.uss?fileID=7433441132597879392&amp;guid=0d7886c9dbad323478beb0a6f6ca2174&amp;type=3#Power slider style" />
+    <engine:MinMaxSlider label="Min/Max Slider" value="10,12" low-limit="-10" high-limit="40" name="PowerSlider" />
+</engine:UXML>
