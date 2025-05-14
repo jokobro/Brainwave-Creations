@@ -10,21 +10,25 @@ public class CatapultBehaviour : MonoBehaviour
     private Camera mainCamera;
     private float defaultCameraSize;
     private Rigidbody2D playerRb;
-    [SerializeField] GameObject location;
+    private GameObject UiDocumentObj;
+    
 
     [Header("Motor properties")]
     [SerializeField] private float motorSpeed;
     [SerializeField] private float motorForce;
     [SerializeField] private float resetTimer;
     [SerializeField] private bool playerAimInput = false;
+    [SerializeField] Transform location;
 
-    [Header("zoom out properties")]
+    [Header("zoom properties")]
     [SerializeField] private float waitForZoomOut;
     [SerializeField] float zoomOutAmount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        UiDocumentObj = GameObject.Find("UIDocument");
+        UiDocumentObj.SetActive(false);
         joint = GetComponent<HingeJoint2D>();
         motor = joint.motor;
         playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
@@ -51,6 +55,7 @@ public class CatapultBehaviour : MonoBehaviour
         WaitForSeconds wait = new WaitForSeconds(resetTimer);
         yield return wait;
         joint.useLimits = true;
+        UiDocumentObj.SetActive(false);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -59,10 +64,12 @@ public class CatapultBehaviour : MonoBehaviour
         {
             StartCoroutine(CameraZoomOut());
             StartCoroutine(LaunchCatapult());
+            UiDocumentObj.SetActive(true);
         }
         // to slingshot bombs at the enemy structure
         else if(gameObject.name == "Bomb catapult" && collision.gameObject.tag == "Bomb")
         {
+            UiDocumentObj.SetActive(true);
             StartCoroutine(CameraZoomOut());
             StartCoroutine(LaunchCatapult());
         }

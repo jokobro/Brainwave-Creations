@@ -1243,9 +1243,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
---- !u!1 &2071715736 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4903648857599651392, guid: d8a91c5441c55f24c96d9f34d94b2275, type: 3}
+--- !u!4 &2071715743 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7844448605913809670, guid: d8a91c5441c55f24c96d9f34d94b2275, type: 3}
   m_PrefabInstance: {fileID: 3847109343882942479}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2106245751643173165
@@ -1546,7 +1546,7 @@ PrefabInstance:
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: location
       value: 
-      objectReference: {fileID: 2071715736}
+      objectReference: {fileID: 2071715743}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: motorForce
       value: 260
@@ -1561,7 +1561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: playerAimInput
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: waitForZoomOut

@@ -9,7 +9,7 @@ public class CustomSlider : MonoBehaviour
     // fill bar references
     private VisualElement bar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void OnEnable()
     {
         root= GetComponent<UIDocument>().rootVisualElement;
         dragger = root.Q<VisualElement>("unity-dragger");
@@ -24,4 +24,6 @@ public class CustomSlider : MonoBehaviour
         bar.name = "Fill bar";
         bar.AddToClassList("Bar");
     }
+
+   
 }
