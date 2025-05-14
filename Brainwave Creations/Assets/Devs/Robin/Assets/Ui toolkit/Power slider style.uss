@@ -1,3 +1,54 @@
-:root {
+#PowerSlider Label {
+    display: none;
+}
 
+#PowerSlider #unity-drag-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 40px;
+    margin-left: 40px;
+    background-color: rgb(6, 0, 255);
+}
+
+#PowerSlider #unity-tracker {
+    flex-grow: 1;
+    top: 0;
+    background-color: rgb(1, 8, 38);
+    bottom: auto;
+    flex-shrink: 1;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-size: 100% 100%;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    position: relative;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+#PowerSlider #unity-dragger {
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    width: 20px;
+    height: 100%;
+    top: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    -unity-background-image-tint-color: rgb(255, 233, 0);
+    background-color: rgb(255, 222, 0);
+    background-size: 100% 100%;
+    bottom: 0;
 }
