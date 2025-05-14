@@ -8,6 +8,7 @@
     margin-right: 40px;
     margin-left: 40px;
     background-color: rgb(6, 0, 255);
+    overflow: hidden;
 }
 
 #PowerSlider #unity-tracker {
@@ -51,4 +52,24 @@
     background-color: rgb(255, 222, 0);
     background-size: 100% 100%;
     bottom: 0;
+}
+
+.Bar {
+    width: 2000px;
+    height: 100%;
+    flex-direction: column;
+    background-color: rgb(255, 38, 0);
+    align-self: flex-end;
+    position: relative;
+}
+
+.Dragger {
+    width: 20px;
+    height: 40px;
+    background-color: rgb(255, 254, 0);
+    position: absolute;
+    align-items: center;
+    top: auto;
+    right: auto;
+    bottom: auto;
 }
