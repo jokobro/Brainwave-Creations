@@ -62,14 +62,3 @@
     align-self: flex-end;
     position: relative;
 }
-
-.Dragger {
-    width: 20px;
-    height: 40px;
-    background-color: rgb(255, 254, 0);
-    position: absolute;
-    align-items: center;
-    top: auto;
-    right: auto;
-    bottom: auto;
-}
