@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5193875314482275560}
   - component: {fileID: 3490453724548627463}
   m_Layer: 17
-  m_Name: Player catapult
+  m_Name: Player hinge
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2558712784484583509}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.2077573, w: 0.9781804}
-  m_LocalPosition: {x: -4.7, y: 3.6, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.23046008, w: 0.9730818}
+  m_LocalPosition: {x: -3.1, y: 3.2, z: 0}
   m_LocalScale: {x: 1.6003897, y: 1.6003897, z: 1.6003897}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1545201041823388590}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 23.982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 26.648}
 --- !u!212 &4673339981564397405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 5.2318745, y: -2.2978525}
-  m_ConnectedAnchor: {x: -28.72763, y: 0.41995472}
+  m_ConnectedAnchor: {x: -30.584572, y: 0.42288056}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -156,11 +156,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876ef642d16d35f48b2771e67e2264a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorSpeed: 450
-  motorForce: 450
+  motorForce: 260
+  playerAimInput: 0
+  motorSpeed: 510
   resetTimer: 0.5
-  waitForZoomOut: 3
-  zoomOutAmount: 7
+  location: {fileID: 0}
+  sliderUI: {fileID: 0}
+  waitForZoomOut: 6
+  zoomOutAmount: 12
 --- !u!60 &3490453724548627463
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -386,7 +389,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2625406059805260970, guid: 0c5317d10c44cb04b8947831180667a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
