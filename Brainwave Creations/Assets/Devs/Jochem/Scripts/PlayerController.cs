@@ -7,8 +7,11 @@ using static UnityEditor.FilePathAttribute;
 
 public class PlayerController : MonoBehaviour
 {
+    [HideInInspector]
+    public CatapultBehaviour cataPultBehaviour;
+
     [Header("References")]
-    [SerializeField] private InputActionAsset inputActions;
+    [SerializeField] private InputActionAsset inputActions;  
 
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
@@ -93,6 +96,10 @@ public class PlayerController : MonoBehaviour
             case "Enemy":
                 SceneManager.LoadScene(2);
                 Debug.Log("Void geraakt Game Over");
+            break;
+
+            case "Catapult collider":
+                cataPultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
             break;
         }
     }

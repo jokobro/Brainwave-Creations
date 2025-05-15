@@ -54,7 +54,6 @@ public class CatapultBehaviour : MonoBehaviour
         WaitForSeconds wait = new WaitForSeconds(resetTimer);
         yield return wait;
         joint.useLimits = true;
-        playerAimInput = false;
         SliderUI.SetActive(false);
     }
 
@@ -65,7 +64,7 @@ public class CatapultBehaviour : MonoBehaviour
         yield return waitForSeconds;
         mainCamera.orthographicSize = defaultCameraSize;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         playerRb.GetComponent<PlayerController>().enabled = false;
         playerAimInput = false;

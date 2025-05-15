@@ -9,7 +9,7 @@ public class CatapultBehaviourBomb : MonoBehaviour
     private JointMotor2D motor;
     private Camera mainCamera;
     private Rigidbody2D playerRb;
-
+    public CatapultBehaviour cataPultBehaviour;
     private float defaultCameraSize;
 
     [Header("Motor properties")]
@@ -27,6 +27,7 @@ public class CatapultBehaviourBomb : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        cataPultBehaviour = GetComponent<CatapultBehaviour>();
         joint = GetComponent<HingeJoint2D>();
         motor = joint.motor;
         playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
@@ -54,7 +55,6 @@ public class CatapultBehaviourBomb : MonoBehaviour
         WaitForSeconds wait = new WaitForSeconds(resetTimer);
         yield return wait;
         joint.useLimits = true;
-        playerAimInput = false;
         SliderUI.SetActive(false);
     }
 
