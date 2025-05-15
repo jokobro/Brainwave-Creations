@@ -65,7 +65,7 @@ public class CatapultBehaviour : MonoBehaviour
         yield return waitForSeconds;
         mainCamera.orthographicSize = defaultCameraSize;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (name == "Bomb catapult" && collision.gameObject.CompareTag("Bomb"))
         {
