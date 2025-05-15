@@ -1,20 +1,26 @@
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class CatapultBehaviour : MonoBehaviour
 {
     private HingeJoint2D joint;
     private JointMotor2D motor;
     private Camera mainCamera;
+    private Rigidbody2D playerRb;
+
     private float defaultCameraSize;
 
     [Header("Motor properties")]
+    public float motorForce;
+    public bool playerAimInput;
+    [SerializeField] private GameObject SliderUI;
     [SerializeField] private float motorSpeed;
-    [SerializeField] private float motorForce;
     [SerializeField] private float resetTimer;
+    [SerializeField] Transform location;
 
-    [Header("zoom out properties")]
+    [Header("zoom properties")]
     [SerializeField] private float waitForZoomOut;
     [SerializeField] float zoomOutAmount;
 
@@ -23,42 +29,33 @@ public class CatapultBehaviour : MonoBehaviour
     {
         joint = GetComponent<HingeJoint2D>();
         motor = joint.motor;
+        playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         defaultCameraSize = mainCamera.orthographicSize;
     }
     // turns the motor of the hingeJoint off and applies all the multiplier variables, and then turns it on to apply all of it at once.
-    private void LaunchCatapult()
+    private IEnumerator LaunchCatapult()
     {
-       joint.useMotor = false;
-       joint.useLimits = false;
-       motor.motorSpeed = motorSpeed;
-       motor.maxMotorTorque = motorForce;
-       joint.motor = motor;
-       joint.useMotor = true;
-       StartCoroutine(ResetCatapult());    
+        SliderUI.SetActive(true);
+      
+        yield return new WaitUntil(() => playerAimInput == true);
+        joint.useMotor = false;
+        joint.useLimits = false;
+        motor.motorSpeed = motorSpeed;
+        motor.maxMotorTorque = motorForce;
+        joint.motor = motor;      
+        joint.useMotor = true;
+        playerRb.AddForce(location.transform.position - playerRb.transform.position.normalized * motorForce,ForceMode2D.Force);
+        StartCoroutine(ResetCatapult());    
     }
-    
     // waits a set amount of seconds and then sets the limit in degrees back to the starting position
     private IEnumerator ResetCatapult()
     {
         WaitForSeconds wait = new WaitForSeconds(resetTimer);
         yield return wait;
         joint.useLimits = true;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // for the player to use during platforming
-        if (gameObject.name == "Player catapult")
-        {
-            StartCoroutine(CameraZoomOut());
-            LaunchCatapult();
-        }
-        // to slingshot bombs at the enemy structure
-        else if(gameObject.name == "Bomb catapult" && collision.gameObject.tag == "Bomb")
-        {
-            StartCoroutine(CameraZoomOut());
-            LaunchCatapult();
-        }
+        playerAimInput = false;
+        SliderUI.SetActive(false);
     }
 
     private IEnumerator CameraZoomOut()
@@ -68,4 +65,17 @@ public class CatapultBehaviour : MonoBehaviour
         yield return waitForSeconds;
         mainCamera.orthographicSize = defaultCameraSize;
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (name == "Bomb catapult" && collision.gameObject.CompareTag("Bomb"))
+        {
+            StartCoroutine(CameraZoomOut());
+            StartCoroutine(LaunchCatapult());
+        }
+        else
+        {
+            StartCoroutine(CameraZoomOut());
+            StartCoroutine(LaunchCatapult());
+        }
+    }    
 }
