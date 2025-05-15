@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -76,20 +77,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        switch (collision.gameObject.tag)
         {
-            isGrounded = true;
-            moveActionMap.Enable();
+            case "Ground":
+                isGrounded = true;
+                moveActionMap.Enable();
+            break;
 
-        }
-        else if (collision.gameObject.CompareTag("Side wall"))
-        {
-            moveActionMap.Disable();
-        }
-        if (collision.gameObject.CompareTag("Void") || collision.gameObject.CompareTag("Enemy"))
-        {
-            SceneManager.LoadScene(2);
-            Debug.Log("Void geraakt Game Over");
+            case "Side wall":
+                moveActionMap.Disable();
+            break;
+
+            case "Void":
+            case "Enemy":
+                SceneManager.LoadScene(2);
+                Debug.Log("Void geraakt Game Over");
+            break;
         }
     }
 
