@@ -11,7 +11,7 @@ TagManager:
   - Enemy structure
   - Enemy
   - Bomb
-  - Slingshot
+  - trampoline
   layers:
   - Default
   - TransparentFX
