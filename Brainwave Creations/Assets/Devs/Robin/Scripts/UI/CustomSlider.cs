@@ -13,19 +13,22 @@ public class CustomSlider : MonoBehaviour
     private VisualElement bar;
 
     //Catapult reference
-    CatapultBehaviour catapultBehaviour;
+    CatapultBehaviour catapultBehaviourPlayer;
+    CatapultBehaviourBomb catapultBehaviourBomb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
     {
-        catapultBehaviour = GameObject.Find("Player hinge").GetComponent<CatapultBehaviour>();
+        catapultBehaviourPlayer = GameObject.Find("Player hinge").GetComponent<CatapultBehaviour>();
+        catapultBehaviourBomb = GameObject.Find("Bomb catapult").GetComponentInChildren<CatapultBehaviourBomb>();
     }
     void OnEnable()
     {     
         root = GetComponent<UIDocument>().rootVisualElement;
         slider = root.Q<Slider>("PowerSlider");
-        slider.highValue = catapultBehaviour.motorForce;
+        slider.highValue = catapultBehaviourBomb.motorForce;
+        slider.highValue = catapultBehaviourPlayer.motorForce;
         dragger = root.Q<VisualElement>("unity-dragger");
              
         AddBarElements();
@@ -41,10 +44,13 @@ public class CustomSlider : MonoBehaviour
 
     private void Update()
     {
-        catapultBehaviour.motorForce = slider.value;
+        catapultBehaviourPlayer.motorForce = slider.value;
+        catapultBehaviourBomb.motorForce = slider.value;
         if(slider.value > 0 && Input.GetMouseButtonUp(0))
         {
-            catapultBehaviour.playerAimInput = true;
+            catapultBehaviourBomb.playerAimInput = true;
+            catapultBehaviourPlayer.playerAimInput = true;
         }
+
     }
 }

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        /*catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
+        catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;
         rigidBody = GetComponent<Rigidbody2D>();
         moveActionMap = inputActions.FindActionMap("Move");
         moveActionMap.Enable();
@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
             case "Ground":
                 isGrounded = true;
                 moveActionMap.Enable();
+                rigidBody.GetComponent<PlayerController>().enabled = true;
             break;
 
             case "Side wall":

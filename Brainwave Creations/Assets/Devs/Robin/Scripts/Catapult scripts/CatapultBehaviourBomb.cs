@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
-public class CatapultBehaviourBomb : MonoBehaviour
+public class CatapultBehaviour : MonoBehaviour
 {
     private HingeJoint2D joint;
     private JointMotor2D motor;
@@ -68,7 +68,7 @@ public class CatapultBehaviourBomb : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         playerRb.GetComponent<PlayerController>().enabled = false;
-        playerAimInput=false;
+        playerAimInput = false;
         StartCoroutine(CameraZoomOut());
         StartCoroutine(LaunchCatapult());
     }    

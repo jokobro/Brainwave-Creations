@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Bomb
   - trampoline
+  - Catapult collider
   layers:
   - Default
   - TransparentFX
