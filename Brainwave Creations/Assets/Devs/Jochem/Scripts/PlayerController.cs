@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using static UnityEditor.FilePathAttribute;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public CatapultBehaviour cataPultBehaviour;
 
     [Header("References")]
-    [SerializeField] private InputActionAsset inputActions;  
+    [SerializeField] private InputActionAsset inputActions;
 
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
@@ -34,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;
+        /*catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
         rigidBody = GetComponent<Rigidbody2D>();
         moveActionMap = inputActions.FindActionMap("Move");
         moveActionMap.Enable();
@@ -86,25 +84,24 @@ public class PlayerController : MonoBehaviour
                 isGrounded = true;
                 moveActionMap.Enable();
                 rigidBody.GetComponent<PlayerController>().enabled = true;
-            break;
+                break;
 
             case "Side wall":
                 moveActionMap.Disable();
-            break;
+                break;
 
             case "Void":
             case "Enemy":
                 SceneManager.LoadScene(2);
-                Debug.Log("Void geraakt Game Over");
-            break;
+                break;
 
             case "Catapult collider":
                 cataPultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
-            break;
+                break;
         }
     }
 
-   
+
 
     public void PickupThrowableObjects(int id, GameObject pickUp)
     {
