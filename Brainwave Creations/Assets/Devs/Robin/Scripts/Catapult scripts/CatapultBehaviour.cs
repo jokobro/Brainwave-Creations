@@ -35,9 +35,7 @@ public class CatapultBehaviour : MonoBehaviour
     // turns the motor of the hingeJoint off and applies all the multiplier variables, and then turns it on to apply all of it at once.
     private IEnumerator LaunchCatapult()
     {
-        SliderUI.SetActive(true);
-        playerAimInput = false;
-        playerRb.GetComponent<PlayerController>().enabled = false;
+        SliderUI.SetActive(true);    
       
         yield return new WaitUntil(() => playerAimInput == true);
         joint.useMotor = false;
@@ -54,6 +52,7 @@ public class CatapultBehaviour : MonoBehaviour
         WaitForSeconds wait = new WaitForSeconds(resetTimer);
         yield return wait;
         joint.useLimits = true;
+        playerAimInput = false;
         SliderUI.SetActive(false);
     }
 

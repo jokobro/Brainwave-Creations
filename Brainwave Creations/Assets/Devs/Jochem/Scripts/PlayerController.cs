@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
+    PlayerController playerController;
 
     [Header("Player Settings")]
     [SerializeField] private float jumpForce = 4; // tweaken kijken wat goede waarde is 
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        playerController= GetComponent<PlayerController>();
         catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;
         rigidBody = GetComponent<Rigidbody2D>();
         moveActionMap = inputActions.FindActionMap("Move");
@@ -99,8 +101,9 @@ public class PlayerController : MonoBehaviour
             break;
 
             case "Catapult collider":
-               catapultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
-               catapultBehaviour.CatapultBehaviourStart();
+                catapultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
+                playerController.enabled= false;
+                catapultBehaviour.CatapultBehaviourStart();
             break;
         }
     }
@@ -132,8 +135,10 @@ public class PlayerController : MonoBehaviour
             Vector2 forward = transform.TransformDirection(Vector2.right);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, forward, interactionRange, interactableLayer);
 
-            if (hit.collider != null && hit.collider.gameObject.name == "Bomb catapult")
+            if (PickedUpObjects.Count != 0 && hit.collider != null && hit.collider.gameObject.name == "Bomb catapult")
             {
+                catapultBehaviour = hit.collider.GetComponent<CatapultBehaviour>();
+                catapultBehaviour.CatapultBehaviourStart();
                 var bomb = Instantiate(PickedUpObjects[0], catapultBombSpawn.position, Quaternion.identity);
                 bomb.gameObject.SetActive(true);
                 PickedUpObjects.RemoveAt(0);
