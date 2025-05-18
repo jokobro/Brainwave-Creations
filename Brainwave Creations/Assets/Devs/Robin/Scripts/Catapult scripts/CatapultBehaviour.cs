@@ -9,33 +9,39 @@ public class CatapultBehaviour : MonoBehaviour
     private JointMotor2D motor;
     private Camera mainCamera;
     private Rigidbody2D playerRb;
+    private PlayerController playerController;
     private float defaultCameraSize;
 
     [Header("Motor properties")]
-    public float motorForce;
+    [HideInInspector]public float motorForce;
+    public float maxMotorForce;
     public bool playerAimInput;
     [SerializeField] private GameObject SliderUI;
     [SerializeField] private float motorSpeed;
     [SerializeField] private float resetTimer;
     [SerializeField] Transform location;
+    
 
     [Header("zoom properties")]
     [SerializeField] private float waitForZoomOut;
     [SerializeField] float zoomOutAmount;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
-        joint = GetComponent<HingeJoint2D>();
-        motor = joint.motor;
         playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        playerController = FindAnyObjectByType<PlayerController>();
+        joint = GetComponent<HingeJoint2D>();
+        motor = joint.motor;
         defaultCameraSize = mainCamera.orthographicSize;
     }
     // turns the motor of the hingeJoint off and applies all the multiplier variables, and then turns it on to apply all of it at once.
     private IEnumerator LaunchCatapult()
     {
-        SliderUI.SetActive(true);    
+        SliderUI.SetActive(true);
+        playerController.enabled = false;
       
         yield return new WaitUntil(() => playerAimInput == true);
         joint.useMotor = false;
@@ -44,6 +50,7 @@ public class CatapultBehaviour : MonoBehaviour
         motor.maxMotorTorque = motorForce;
         joint.motor = motor;      
         joint.useMotor = true;
+        playerRb.AddForce(location.transform.position - playerRb.transform.position.normalized * motorForce);
         StartCoroutine(ResetCatapult());    
     }
     // waits a set amount of seconds and then sets the limit in degrees back to the starting position

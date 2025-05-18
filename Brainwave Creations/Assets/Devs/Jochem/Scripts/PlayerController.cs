@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
-    PlayerController playerController;
 
     [Header("Player Settings")]
     [SerializeField] private float jumpForce = 4; // tweaken kijken wat goede waarde is 
@@ -35,7 +34,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        playerController= GetComponent<PlayerController>();
         catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;
         rigidBody = GetComponent<Rigidbody2D>();
         moveActionMap = inputActions.FindActionMap("Move");
@@ -102,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
             case "Catapult collider":
                 catapultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
-                playerController.enabled= false;
+                moveActionMap.Disable();
                 catapultBehaviour.CatapultBehaviourStart();
             break;
         }
