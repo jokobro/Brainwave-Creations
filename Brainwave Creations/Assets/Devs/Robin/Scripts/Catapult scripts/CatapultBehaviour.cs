@@ -3,13 +3,12 @@ using Unity.Mathematics;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
-public class CatapultBehaviourBomb : MonoBehaviour
+public class CatapultBehaviour : MonoBehaviour
 {
     private HingeJoint2D joint;
     private JointMotor2D motor;
     private Camera mainCamera;
     private Rigidbody2D playerRb;
-    public CatapultBehaviour cataPultBehaviour;
     private float defaultCameraSize;
 
     [Header("Motor properties")]
@@ -27,7 +26,6 @@ public class CatapultBehaviourBomb : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
-        cataPultBehaviour = GetComponent<CatapultBehaviour>();
         joint = GetComponent<HingeJoint2D>();
         motor = joint.motor;
         playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
@@ -38,6 +36,8 @@ public class CatapultBehaviourBomb : MonoBehaviour
     private IEnumerator LaunchCatapult()
     {
         SliderUI.SetActive(true);
+        playerAimInput = false;
+        playerRb.GetComponent<PlayerController>().enabled = false;
       
         yield return new WaitUntil(() => playerAimInput == true);
         joint.useMotor = false;
@@ -46,7 +46,6 @@ public class CatapultBehaviourBomb : MonoBehaviour
         motor.maxMotorTorque = motorForce;
         joint.motor = motor;      
         joint.useMotor = true;
-        playerRb.AddForce(location.transform.position - transform.position.normalized * motorForce);
         StartCoroutine(ResetCatapult());    
     }
     // waits a set amount of seconds and then sets the limit in degrees back to the starting position
@@ -65,11 +64,11 @@ public class CatapultBehaviourBomb : MonoBehaviour
         yield return waitForSeconds;
         mainCamera.orthographicSize = defaultCameraSize;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    public void CatapultBehaviourStart()
     {
-        playerRb.GetComponent<PlayerController>().enabled = false;
-        playerAimInput=false;
-        StartCoroutine(CameraZoomOut());
         StartCoroutine(LaunchCatapult());
-    }    
+        StartCoroutine(CameraZoomOut());
+    }
+   
 }

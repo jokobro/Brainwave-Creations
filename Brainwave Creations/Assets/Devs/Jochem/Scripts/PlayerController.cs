@@ -8,7 +8,7 @@ using static UnityEditor.FilePathAttribute;
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
-    public CatapultBehaviour cataPultBehaviour;
+    public CatapultBehaviour catapultBehaviour;
 
     [Header("References")]
     [SerializeField] private InputActionAsset inputActions;  
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         switch (collision.gameObject.tag)
         {
@@ -99,7 +99,8 @@ public class PlayerController : MonoBehaviour
             break;
 
             case "Catapult collider":
-                cataPultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
+               catapultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
+               catapultBehaviour.CatapultBehaviourStart();
             break;
         }
     }
