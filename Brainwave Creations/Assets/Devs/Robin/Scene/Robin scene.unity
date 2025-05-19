@@ -1307,6 +1307,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb47b32170d966b4b9826205e27aa19b, type: 3}
+--- !u!4 &1872375654 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1196412711618609449, guid: d03d468785ed0ec40b8d712da6138125, type: 3}
+  m_PrefabInstance: {fileID: 698832859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2001707919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1396,11 +1401,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
---- !u!4 &2071715743 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7844448605913809670, guid: d8a91c5441c55f24c96d9f34d94b2275, type: 3}
-  m_PrefabInstance: {fileID: 3847109343882942479}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2106245751643173165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1528,7 +1528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7844448605913809670, guid: d8a91c5441c55f24c96d9f34d94b2275, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.47
+      value: 11.21
       objectReference: {fileID: 0}
     - target: {fileID: 7844448605913809670, guid: d8a91c5441c55f24c96d9f34d94b2275, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1564,7 +1564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8603118426268566741, guid: d8a91c5441c55f24c96d9f34d94b2275, type: 3}
       propertyPath: m_Simulated
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1735,7 +1735,7 @@ PrefabInstance:
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: location
       value: 
-      objectReference: {fileID: 2071715743}
+      objectReference: {fileID: 1872375654}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: motorForce
       value: 0
@@ -1746,7 +1746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: maxMotorForce
-      value: 600
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: playerAimInput
