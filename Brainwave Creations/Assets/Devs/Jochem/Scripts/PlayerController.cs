@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private float timer = 0;
     private bool timerIsActive = false;
-    private bool isGrounded = true;
+    [SerializeField]private bool isGrounded = true;
     private float moveSpeed = 6f;
     Vector2 inputMovement;
 
@@ -93,12 +93,22 @@ public class PlayerController : MonoBehaviour
             break;
 
             case "Void":
-            case "Enemy":
-                SceneManager.LoadScene(2);
-                Debug.Log("Void geraakt Game Over");
+            case "Enemy":    
+                if (!isGrounded)
+                {
+                    collision.rigidbody.AddForce(transform.right * 5, ForceMode2D.Impulse);
+                    Destroy(collision.gameObject, .5f);
+                }
+                else
+                {
+                    SceneManager.LoadScene(2);
+                    Destroy(gameObject);
+                    Debug.Log("Void geraakt Game Over");
+                }
             break;
 
             case "Catapult collider":
+                isGrounded = false;
                 catapultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
                 moveActionMap.Disable();
                 catapultBehaviour.CatapultBehaviourStart();

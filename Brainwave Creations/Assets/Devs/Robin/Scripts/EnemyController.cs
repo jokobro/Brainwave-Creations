@@ -24,14 +24,6 @@ public class EnemyController : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Destroy(collision.gameObject);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // rotates the enemy at the edge of a platform so it doesnt fall off and can keep patrolling

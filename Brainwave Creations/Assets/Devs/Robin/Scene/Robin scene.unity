@@ -1742,11 +1742,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: motorSpeed
-      value: 500
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: maxMotorForce
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: playerAimInput
@@ -1763,6 +1763,26 @@ PrefabInstance:
     - target: {fileID: 8205573815678046048, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065314581535389670, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.1000092
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065314581535389670, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065314581535389670, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9998936
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065314581535389670, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.014589744
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065314581535389670, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.672
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1863,11 +1883,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5752323508746825840, guid: 69e61500cda9f394da9037c58d932eef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.309998
+      value: -32.73
       objectReference: {fileID: 0}
     - target: {fileID: 5752323508746825840, guid: 69e61500cda9f394da9037c58d932eef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.63
+      value: 2.64
       objectReference: {fileID: 0}
     - target: {fileID: 5752323508746825840, guid: 69e61500cda9f394da9037c58d932eef, type: 3}
       propertyPath: m_LocalPosition.z
