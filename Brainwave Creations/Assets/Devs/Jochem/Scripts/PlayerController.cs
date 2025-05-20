@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using static UnityEditor.FilePathAttribute;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public CatapultBehaviour catapultBehaviour;
 
     [Header("References")]
-    [SerializeField] private InputActionAsset inputActions;  
+    [SerializeField] private InputActionAsset inputActions;
 
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
@@ -32,9 +30,11 @@ public class PlayerController : MonoBehaviour
     private InputActionMap moveActionMap;
 
 
+    [SerializeField] private float force = 7f;
+
     private void Awake()
     {
-        catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;
+       /* catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
         rigidBody = GetComponent<Rigidbody2D>();
         moveActionMap = inputActions.FindActionMap("Move");
         moveActionMap.Enable();
@@ -87,16 +87,15 @@ public class PlayerController : MonoBehaviour
                 moveActionMap.Enable();
                 rigidBody.GetComponent<PlayerController>().enabled = true;
             break;
-
             case "Side wall":
                 moveActionMap.Disable();
             break;
 
             case "Void":
                 GameOver();
-            break;
+                break;
 
-            case "Enemy":    
+            case "Enemy":
                 if (!isGrounded)
                 {
                     collision.rigidbody.AddForce(gameObject.transform.position - collision.gameObject.transform.position.normalized * rigidBody.linearVelocityX, ForceMode2D.Impulse);
@@ -106,18 +105,47 @@ public class PlayerController : MonoBehaviour
                 {
                     GameOver();
                 }
-            break;
+                break;
 
             case "Catapult collider":
                 isGrounded = false;
                 catapultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
                 moveActionMap.Disable();
                 catapultBehaviour.CatapultBehaviourStart();
-            break;
+                break;
+
+
+            /*case "northWall":
+                rigidBody.AddForce(transform.forward * -force, ForceMode2D.Impulse);
+                break;
+            case "southWall":
+                rigidBody.AddForce(transform.forward * force, ForceMode2D.Impulse);
+                break;
+            case "westWall":
+                rigidBody.AddForce(transform.right * force, ForceMode2D.Impulse);
+                break;
+            case "eastWall":
+                rigidBody.AddForce(transform.right * -force, ForceMode2D.Impulse);
+                    break;
+*/
+
+
+            case "northWall":
+                rigidBody.AddForce(Vector2.down * force, ForceMode2D.Impulse);
+                break;
+            case "southWall":
+                rigidBody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+                break;
+            case "westWall":
+                rigidBody.AddForce(Vector2.right * force, ForceMode2D.Impulse);
+                break;
+            case "eastWall":
+                rigidBody.AddForce(Vector2.left * force, ForceMode2D.Impulse);
+                break;
         }
     }
 
-   
+
     private void GameOver()
     {
         SceneManager.LoadScene(2);
