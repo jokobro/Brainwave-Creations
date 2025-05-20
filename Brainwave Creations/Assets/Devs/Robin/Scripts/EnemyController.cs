@@ -29,13 +29,15 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collided && collision.gameObject.tag != "Ground")
+        if (collided && collision.gameObject.CompareTag("Enemy"))
         {
-          Destroy(gameObject);
-
-        }else if(collided && collision.gameObject.CompareTag("Enemy")){
-          collision.rigidbody.AddForce(collision.gameObject.transform.position - gameObject.transform.position.normalized * rb.linearVelocityX, ForceMode2D.Impulse);
-            Debug.Log("collat");
+            collision.gameObject.GetComponent<EnemyController>().collided = true;
+            collision.rigidbody.AddForce(collision.transform.position - transform.position * -20, ForceMode2D.Impulse);
+        }
+        else if (collided && collision.gameObject.tag != "Ground")
+        {
+            Destroy(gameObject);
+            Debug.Log("Kill");
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

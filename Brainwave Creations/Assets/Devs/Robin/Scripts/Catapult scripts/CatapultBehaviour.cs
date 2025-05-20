@@ -14,8 +14,8 @@ public class CatapultBehaviour : MonoBehaviour
 
     [Header("Motor properties")]
     [HideInInspector]public float motorForce;
-    public float maxMotorForce;
-    public bool playerAimInput;
+    [HideInInspector]public bool playerAimInput;
+    public float maxMotorForce;  
     [SerializeField] private GameObject SliderUI;
     [SerializeField] private float motorSpeed;
     [SerializeField] private float resetTimer;
