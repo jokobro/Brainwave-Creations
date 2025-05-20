@@ -29,9 +29,6 @@ public class PlayerController : MonoBehaviour
 
     private InputActionMap moveActionMap;
 
-
-    [SerializeField] private float force = 7f;
-
     private void Awake()
     {
        /* catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
@@ -99,7 +96,8 @@ public class PlayerController : MonoBehaviour
             case "Enemy":
                 if (!isGrounded)
                 {
-                    collision.rigidbody.AddForce(collision.transform.position - transform.position.normalized * rigidBody.linearVelocity.magnitude, ForceMode2D.Impulse);
+                    Vector2 direction = collision.transform.position - transform.position;
+                    collision.rigidbody.AddForce(rigidBody.linearVelocityX * direction.normalized, ForceMode2D.Impulse);
                     collision.gameObject.GetComponent<EnemyController>().collided = true;
                     rigidBody.linearVelocityX = 0;
                 }
