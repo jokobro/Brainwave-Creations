@@ -25,7 +25,7 @@ public class CustomSlider : MonoBehaviour
     {     
         root = GetComponent<UIDocument>().rootVisualElement;
         slider = root.Q<Slider>("PowerSlider");
-        slider.highValue = playerController.catapultBehaviour.maxMotorForce;
+        slider.highValue = playerController.catapultBehaviour.maxSlingPower;
         dragger = root.Q<VisualElement>("unity-dragger");
              
         AddBarElements();
@@ -41,7 +41,7 @@ public class CustomSlider : MonoBehaviour
 
     private void Update()
     {
-        playerController.catapultBehaviour.motorForce = slider.value;
+        playerController.catapultBehaviour.slingPower = slider.value;
         if (slider.value > 0 && Input.GetMouseButtonUp(0))
         {
           playerController.catapultBehaviour.playerAimInput = true;

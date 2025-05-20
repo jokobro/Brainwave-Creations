@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3490453724548627463}
   m_Layer: 17
   m_Name: Player hinge
-  m_TagString: Untagged
+  m_TagString: Catapult collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 5.2318745, y: -2.2978525}
-  m_ConnectedAnchor: {x: -30.584572, y: 0.42288056}
+  m_ConnectedAnchor: {x: -31.975813, y: 0.44150475}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -158,10 +158,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motorForce: 300
   playerAimInput: 0
+  maxMotorForce: 40
   SliderUI: {fileID: 0}
   motorSpeed: 510
   resetTimer: 0.5
-  location: {fileID: 0}
+  direction: {fileID: 0}
   waitForZoomOut: 6
   zoomOutAmount: 12
 --- !u!60 &3490453724548627463

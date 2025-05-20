@@ -13,13 +13,14 @@ public class CatapultBehaviour : MonoBehaviour
     private float defaultCameraSize;
 
     [Header("Motor properties")]
-    [HideInInspector]public float motorForce;
-    [HideInInspector]public bool playerAimInput;
-    public float maxMotorForce;  
+    public float motorForce;
+    [HideInInspector] public bool playerAimInput;
+    [HideInInspector] public float slingPower;
+    public float maxSlingPower;
     [SerializeField] private GameObject SliderUI;
     [SerializeField] private float motorSpeed;
     [SerializeField] private float resetTimer;
-    [SerializeField] Transform location;
+    [SerializeField] Transform direction;
     
 
     [Header("zoom properties")]
@@ -50,7 +51,8 @@ public class CatapultBehaviour : MonoBehaviour
         motor.maxMotorTorque = motorForce;
         joint.motor = motor;      
         joint.useMotor = true;
-        playerRb.AddForce(location.transform.position - playerRb.transform.position.normalized * motorForce);
+        Vector2 vectorDirection = direction.position - playerRb.transform.position;
+        playerRb.AddForce(slingPower * vectorDirection.normalized,ForceMode2D.Impulse);
         StartCoroutine(ResetCatapult());    
     }
     // waits a set amount of seconds and then sets the limit in degrees back to the starting position
