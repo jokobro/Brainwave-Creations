@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
                 moveActionMap.Enable();
                 rigidBody.GetComponent<PlayerController>().enabled = true;
             break;
+
             case "Side wall":
                 moveActionMap.Disable();
             break;
