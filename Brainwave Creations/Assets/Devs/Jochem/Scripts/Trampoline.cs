@@ -3,18 +3,22 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     [SerializeField] private float jumpforce = 5f;
+    [SerializeField] Transform direction;
     Rigidbody2D playerRigidbody;
-    
+    PlayerController playerController;
     private void Awake()
     {
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        playerController = FindAnyObjectByType<PlayerController>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            playerRigidbody.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
+            Vector2 vectorDirection = direction.position - transform.position;
+            if(vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled= false;
+            playerRigidbody.AddForce(jumpforce * vectorDirection.normalized,ForceMode2D.Impulse);
         }
     }
 }
