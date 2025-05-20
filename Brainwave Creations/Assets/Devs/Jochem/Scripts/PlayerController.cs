@@ -17,13 +17,13 @@ public class PlayerController : MonoBehaviour
     Transform catapultBombSpawn;
 
     [Header("Player Settings")]
-    [SerializeField] private float jumpForce = 4; // tweaken kijken wat goede waarde is 
+    [SerializeField] private float jumpForce;
     [SerializeField] int interactionRange;
     [SerializeField] LayerMask interactableLayer;
 
     private float timer = 0;
     private bool timerIsActive = false;
-    [SerializeField]private bool isGrounded = true;
+    private bool isGrounded = false;
     private float moveSpeed = 6f;
     Vector2 inputMovement;
 
@@ -93,17 +93,18 @@ public class PlayerController : MonoBehaviour
             break;
 
             case "Void":
+                GameOver();
+            break;
+
             case "Enemy":    
                 if (!isGrounded)
                 {
-                    collision.rigidbody.AddForce(transform.right * 5, ForceMode2D.Impulse);
-                    Destroy(collision.gameObject, .5f);
+                    collision.rigidbody.AddForce(gameObject.transform.position - collision.gameObject.transform.position.normalized * rigidBody.linearVelocityX, ForceMode2D.Impulse);
+                    collision.gameObject.GetComponent<EnemyController>().collided = true;
                 }
                 else
                 {
-                    SceneManager.LoadScene(2);
-                    Destroy(gameObject);
-                    Debug.Log("Void geraakt Game Over");
+                    GameOver();
                 }
             break;
 
@@ -117,7 +118,11 @@ public class PlayerController : MonoBehaviour
     }
 
    
-
+    private void GameOver()
+    {
+        SceneManager.LoadScene(2);
+        Destroy(gameObject);
+    }
     public void PickupThrowableObjects(int id, GameObject pickUp)
     {
         switch (id)

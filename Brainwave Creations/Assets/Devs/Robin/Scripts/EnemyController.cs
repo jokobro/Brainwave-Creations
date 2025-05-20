@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    // references
     private Rigidbody2D rb;
+
     [Header("Enemy properties")]
     [SerializeField] float speed;
+    public bool collided;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +27,17 @@ public class EnemyController : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collided && collision.gameObject.tag != "Ground")
+        {
+          Destroy(gameObject);
+
+        }else if(collided && collision.gameObject.CompareTag("Enemy")){
+          collision.rigidbody.AddForce(collision.gameObject.transform.position - gameObject.transform.position.normalized * rb.linearVelocityX, ForceMode2D.Impulse);
+            Debug.Log("collat");
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // rotates the enemy at the edge of a platform so it doesnt fall off and can keep patrolling
