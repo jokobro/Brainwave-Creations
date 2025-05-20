@@ -20,5 +20,13 @@ public class LaunchpadOppositedirection : MonoBehaviour
 
 
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerRigidbody.AddForce(transform.forward);
+
+
+        }
+
     }
 }
