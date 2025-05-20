@@ -93,55 +93,27 @@ public class PlayerController : MonoBehaviour
 
             case "Void":
                 GameOver();
-                break;
+            break;
 
             case "Enemy":
                 if (!isGrounded)
                 {
-                    collision.rigidbody.AddForce(gameObject.transform.position - collision.gameObject.transform.position.normalized * rigidBody.linearVelocityX, ForceMode2D.Impulse);
+                    collision.rigidbody.AddForce(collision.transform.position - transform.position.normalized * rigidBody.linearVelocity.magnitude, ForceMode2D.Impulse);
                     collision.gameObject.GetComponent<EnemyController>().collided = true;
+                    rigidBody.linearVelocityX = 0;
                 }
                 else
                 {
                     GameOver();
                 }
-                break;
+            break;
 
             case "Catapult collider":
                 isGrounded = false;
                 catapultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
                 moveActionMap.Disable();
                 catapultBehaviour.CatapultBehaviourStart();
-                break;
-
-
-            /*case "northWall":
-                rigidBody.AddForce(transform.forward * -force, ForceMode2D.Impulse);
-                break;
-            case "southWall":
-                rigidBody.AddForce(transform.forward * force, ForceMode2D.Impulse);
-                break;
-            case "westWall":
-                rigidBody.AddForce(transform.right * force, ForceMode2D.Impulse);
-                break;
-            case "eastWall":
-                rigidBody.AddForce(transform.right * -force, ForceMode2D.Impulse);
-                    break;
-*/
-
-
-            case "northWall":
-                rigidBody.AddForce(Vector2.down * force, ForceMode2D.Impulse);
-                break;
-            case "southWall":
-                rigidBody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-                break;
-            case "westWall":
-                rigidBody.AddForce(Vector2.right * force, ForceMode2D.Impulse);
-                break;
-            case "eastWall":
-                rigidBody.AddForce(Vector2.left * force, ForceMode2D.Impulse);
-                break;
+            break;
         }
     }
 
