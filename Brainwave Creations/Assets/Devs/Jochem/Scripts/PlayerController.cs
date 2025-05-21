@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     PlayerController playerController;
     Camera mainCamera;
     float defaultCameraSize;
+    float basefrition;
 
     [Header("Player Settings")]
     [SerializeField] private float jumpForce;
@@ -34,14 +35,19 @@ public class PlayerController : MonoBehaviour
     private InputActionMap moveActionMap;
 
     private void Awake()
-    {
-       /* catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
-       mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-       defaultCameraSize = mainCamera.orthographicSize;
-       playerController = GetComponent<PlayerController>();
-       rigidBody = GetComponent<Rigidbody2D>();
-       moveActionMap = inputActions.FindActionMap("Move");
-       moveActionMap.Enable();
+    {      
+       //setting Camera references
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        defaultCameraSize = mainCamera.orthographicSize;      
+       //setting Rigidbody references
+        rigidBody = GetComponent<Rigidbody2D>();
+        basefrition = rigidBody.sharedMaterial.friction;
+       //setting Input references
+        moveActionMap = inputActions.FindActionMap("Move");
+        moveActionMap.Enable();
+        //rest
+        playerController = GetComponent<PlayerController>();
+        /* catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
     }
 
     private void Update()
@@ -91,6 +97,7 @@ public class PlayerController : MonoBehaviour
                 slinging = false;
                 moveActionMap.Enable();
                 playerController.enabled = true;
+                rigidBody.sharedMaterial.friction = .4f;
             break;
 
             case "Side wall":
@@ -121,13 +128,23 @@ public class PlayerController : MonoBehaviour
             break;
 
             case "Breakable wall":
-                if (slinging) Destroy(collision.gameObject);
+                if (slinging)
+                {
+                    collision.gameObject.SetActive(false);
+                    StartCoroutine(SetPlayerFriction(0,.5f));
+                    rigidBody.linearVelocityX = rigidBody.linearVelocityX / 2;
+                }
             break;
 
         }
     }
 
-
+    private IEnumerator SetPlayerFriction(float frictionAmount,float resetTime)
+    {
+        rigidBody.sharedMaterial.friction = frictionAmount;
+        yield return new WaitForSeconds(resetTime);
+        rigidBody.sharedMaterial.friction = basefrition;
+    }
     private void GameOver()
     {
         SceneManager.LoadScene(2);
