@@ -13,6 +13,7 @@ TagManager:
   - Bomb
   - trampoline
   - Catapult collider
+  - Breakable wall
   layers:
   - Default
   - TransparentFX

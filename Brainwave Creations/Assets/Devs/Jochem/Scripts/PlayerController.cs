@@ -119,6 +119,11 @@ public class PlayerController : MonoBehaviour
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 catapultBehaviour.CatapultBehaviourStart();
             break;
+
+            case "Breakable wall":
+                if (slinging) Destroy(collision.gameObject);
+            break;
+
         }
     }
 
