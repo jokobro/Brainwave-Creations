@@ -13,6 +13,7 @@ TagManager:
   - Bomb
   - trampoline
   - Catapult collider
+  - HeightDependingLaunchpad
   layers:
   - Default
   - TransparentFX
