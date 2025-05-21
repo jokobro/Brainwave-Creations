@@ -1,6 +1,5 @@
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UIElements;
 
 public class CustomSlider : MonoBehaviour
@@ -18,13 +17,14 @@ public class CustomSlider : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
-    {
+    {   
         playerController = FindAnyObjectByType<PlayerController>();
     }
     void OnEnable()
     {     
         root = GetComponent<UIDocument>().rootVisualElement;
         slider = root.Q<Slider>("PowerSlider");
+        slider.focusable = false;
         slider.highValue = playerController.catapultBehaviour.maxSlingPower;
         dragger = root.Q<VisualElement>("unity-dragger");            
         AddBarElements();

@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask interactableLayer;
     [SerializeField] float enemyZoomOutAmount;
 
-    [HideInInspector] public bool slinging = false;
+    public bool slinging = false;
     private float timer = 0;
     private bool timerIsActive = false;
     private bool isGrounded = false;
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
                 }
             break;
 
-            case "Catapult collider":                
+            case "Catapult collider":
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 catapultBehaviour.CatapultBehaviourStart();
             break;

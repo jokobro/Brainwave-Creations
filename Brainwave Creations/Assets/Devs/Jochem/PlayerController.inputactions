@@ -50,34 +50,6 @@
             ]
         },
         {
-            "name": "UI",
-            "id": "c41e7678-564b-4147-a811-34ba5e4ed000",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "a9de2dfb-3916-4fac-93cb-b9fe170144ca",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "5d3c5872-4bae-4412-92d9-4230569442b7",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "Move",
             "id": "43f26a8a-69e9-421c-afdb-024f115a6509",
             "actions": [

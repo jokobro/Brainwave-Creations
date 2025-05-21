@@ -44,13 +44,17 @@ public class CatapultBehaviour : MonoBehaviour
         SliderUI.SetActive(true);
       
         yield return new WaitUntil(() => playerAimInput == true);
+        //setting player variables
+        playerController.slinging = true;
         playerController.enabled = false;
+        // setting motor properties
         joint.useMotor = false;
         joint.useLimits = false;
         motor.motorSpeed = motorSpeed;
         motor.maxMotorTorque = motorForce;
         joint.motor = motor;      
         joint.useMotor = true;
+        // adding player force and reset catapult
         Vector2 vectorDirection = direction.position - playerRb.transform.position;
         playerRb.AddForce(slingPower * vectorDirection.normalized,ForceMode2D.Impulse);
         StartCoroutine(ResetCatapult());    
