@@ -19,7 +19,7 @@ public class Trampoline : MonoBehaviour
             playerController.slinging = true;
             Vector2 vectorDirection = direction.position - transform.position;
             if(vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled= false;
-            playerRigidbody.AddForce(jumpforce * vectorDirection.normalized,ForceMode2D.Impulse);
+            playerRigidbody.AddForce(jumpforce * vectorDirection.normalized, ForceMode2D.Impulse);
         }
     }
 }

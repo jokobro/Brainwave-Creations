@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,11 +13,14 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
     PlayerController playerController;
+    Camera mainCamera;
+    float defaultCameraSize;
 
     [Header("Player Settings")]
     [SerializeField] private float jumpForce;
     [SerializeField] int interactionRange;
     [SerializeField] LayerMask interactableLayer;
+    [SerializeField] float enemyZoomOutAmount;
 
     [HideInInspector] public bool slinging = false;
     private float timer = 0;
@@ -32,10 +36,12 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
        /* catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
-        playerController = GetComponent<PlayerController>();
-        rigidBody = GetComponent<Rigidbody2D>();
-        moveActionMap = inputActions.FindActionMap("Move");
-        moveActionMap.Enable();
+       mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+       defaultCameraSize = mainCamera.orthographicSize;
+       playerController = GetComponent<PlayerController>();
+       rigidBody = GetComponent<Rigidbody2D>();
+       moveActionMap = inputActions.FindActionMap("Move");
+       moveActionMap.Enable();
     }
 
     private void Update()
@@ -98,6 +104,7 @@ public class PlayerController : MonoBehaviour
             case "Enemy":
                 if (slinging)
                 {
+                    StartCoroutine(EnemyCollisionZoomOut());
                     Vector2 direction = collision.transform.position - transform.position;
                     collision.rigidbody.AddForce(rigidBody.linearVelocityX * direction.normalized, ForceMode2D.Impulse);
                     rigidBody.linearVelocityX = 0;
@@ -157,5 +164,12 @@ public class PlayerController : MonoBehaviour
                 timer = 6;
             }
         }
+    }
+
+    private IEnumerator EnemyCollisionZoomOut()
+    {
+        mainCamera.orthographicSize = defaultCameraSize + enemyZoomOutAmount;
+        yield return new WaitForSeconds(3);
+        mainCamera.orthographicSize = defaultCameraSize;
     }
 }
