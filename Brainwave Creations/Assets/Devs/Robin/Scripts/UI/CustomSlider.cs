@@ -26,8 +26,7 @@ public class CustomSlider : MonoBehaviour
         root = GetComponent<UIDocument>().rootVisualElement;
         slider = root.Q<Slider>("PowerSlider");
         slider.highValue = playerController.catapultBehaviour.maxSlingPower;
-        dragger = root.Q<VisualElement>("unity-dragger");
-             
+        dragger = root.Q<VisualElement>("unity-dragger");            
         AddBarElements();
     }
 

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
+    PlayerController playerController;
 
     [Header("Player Settings")]
     [SerializeField] private float jumpForce;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
        /* catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
+        playerController = GetComponent<PlayerController>();
         rigidBody = GetComponent<Rigidbody2D>();
         moveActionMap = inputActions.FindActionMap("Move");
         moveActionMap.Enable();
@@ -82,7 +84,7 @@ public class PlayerController : MonoBehaviour
                 isGrounded = true;
                 slinging = false;
                 moveActionMap.Enable();
-                rigidBody.GetComponent<PlayerController>().enabled = true;
+                playerController.enabled = true;
             break;
 
             case "Side wall":
@@ -98,7 +100,6 @@ public class PlayerController : MonoBehaviour
                 {
                     Vector2 direction = collision.transform.position - transform.position;
                     collision.rigidbody.AddForce(rigidBody.linearVelocityX * direction.normalized, ForceMode2D.Impulse);
-                    collision.gameObject.GetComponent<EnemyController>().collided = true;
                     rigidBody.linearVelocityX = 0;
                 }
                 else
@@ -109,8 +110,6 @@ public class PlayerController : MonoBehaviour
 
             case "Catapult collider":                
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
-                moveActionMap.Disable();
-                rigidBody.linearVelocityX = 0;
                 catapultBehaviour.CatapultBehaviourStart();
             break;
         }
@@ -120,7 +119,7 @@ public class PlayerController : MonoBehaviour
     private void GameOver()
     {
         SceneManager.LoadScene(2);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
     public void PickupThrowableObjects(int id, GameObject pickUp)
     {

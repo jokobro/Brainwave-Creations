@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
-    [SerializeField] private float jumpforce = 5f;
+    [SerializeField] private float jumpforce;
     [SerializeField]Transform direction;
     Rigidbody2D playerRigidbody;
     PlayerController playerController;

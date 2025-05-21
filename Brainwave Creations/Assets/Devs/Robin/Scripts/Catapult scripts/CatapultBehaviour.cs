@@ -42,9 +42,9 @@ public class CatapultBehaviour : MonoBehaviour
     private IEnumerator LaunchCatapult()
     {
         SliderUI.SetActive(true);
-        playerController.enabled = false;
       
         yield return new WaitUntil(() => playerAimInput == true);
+        playerController.enabled = false;
         joint.useMotor = false;
         joint.useLimits = false;
         motor.motorSpeed = motorSpeed;
