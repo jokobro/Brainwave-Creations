@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    // references
+    Rigidbody2D rb;
     [Header("Enemy properties")]
     [SerializeField] float speed;
     [SerializeField] int collateralForce;
-    public bool collided;
+    [HideInInspector] public bool collided;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        rb= GetComponent<Rigidbody2D>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,15 +29,13 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (collided && collision.gameObject.CompareTag("Enemy"))
         {
             Vector2 direction = collision.transform.position - transform.position;
-            collision.rigidbody.AddForce( collateralForce * direction.normalized, ForceMode2D.Impulse);
-            collision.gameObject.GetComponent<EnemyController>().collided = true;
+            collision.rigidbody.AddForce(collateralForce * direction.normalized, ForceMode2D.Impulse);
             Destroy(gameObject);
         }
-        else if (collided && collision.gameObject.layer == 18)
+        else if (collision.gameObject.layer == 18)
         {
             Destroy(gameObject);
         }

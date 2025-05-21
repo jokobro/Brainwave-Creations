@@ -24,8 +24,8 @@ public class CatapultBehaviour : MonoBehaviour
     
 
     [Header("zoom properties")]
-    [SerializeField] private float waitForZoomOut;
     [SerializeField] float zoomOutAmount;
+    [SerializeField] float waitUntilZoomIn;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -67,9 +67,9 @@ public class CatapultBehaviour : MonoBehaviour
 
     private IEnumerator CameraZoomOut()
     {
-        WaitForSeconds waitForSeconds = new WaitForSeconds(waitForZoomOut);
-        mainCamera.orthographicSize = defaultCameraSize +zoomOutAmount;
-        yield return waitForSeconds;
+        mainCamera.orthographicSize = defaultCameraSize + zoomOutAmount;
+        yield return new WaitUntil(() => playerAimInput == true);
+        yield return new WaitForSeconds(waitUntilZoomIn);
         mainCamera.orthographicSize = defaultCameraSize;
     }
 

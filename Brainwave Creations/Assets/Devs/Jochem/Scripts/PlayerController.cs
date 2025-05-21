@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    [HideInInspector]
-    public CatapultBehaviour catapultBehaviour;
-
     [Header("References")]
+    [HideInInspector] public CatapultBehaviour catapultBehaviour;
     [SerializeField] private InputActionAsset inputActions;
 
     Rigidbody2D rigidBody;
@@ -19,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int interactionRange;
     [SerializeField] LayerMask interactableLayer;
 
+    [HideInInspector] public bool slinging = false;
     private float timer = 0;
     private bool timerIsActive = false;
     private bool isGrounded = false;
@@ -81,6 +80,7 @@ public class PlayerController : MonoBehaviour
         {
             case "Ground":
                 isGrounded = true;
+                slinging = false;
                 moveActionMap.Enable();
                 rigidBody.GetComponent<PlayerController>().enabled = true;
             break;
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
             break;
 
             case "Enemy":
-                if (!isGrounded)
+                if (slinging)
                 {
                     Vector2 direction = collision.transform.position - transform.position;
                     collision.rigidbody.AddForce(rigidBody.linearVelocityX * direction.normalized, ForceMode2D.Impulse);
@@ -107,10 +107,10 @@ public class PlayerController : MonoBehaviour
                 }
             break;
 
-            case "Catapult collider":
-                isGrounded = false;
-                catapultBehaviour = collision.gameObject.GetComponent<CatapultBehaviour>();
+            case "Catapult collider":                
+                catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 moveActionMap.Disable();
+                rigidBody.linearVelocityX = 0;
                 catapultBehaviour.CatapultBehaviourStart();
             break;
         }

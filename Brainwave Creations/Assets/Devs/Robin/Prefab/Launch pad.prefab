@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d464912a1e49a4ea6c1b1b3fb14d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpforce: 10
+  jumpforce: 20
   direction: {fileID: 6848696332996935192}
 --- !u!1 &5340469739604164960
 GameObject:
@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6848696332996935192}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Direction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
