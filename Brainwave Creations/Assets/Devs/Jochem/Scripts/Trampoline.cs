@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Trampoline : MonoBehaviour
@@ -6,7 +7,7 @@ public class Trampoline : MonoBehaviour
     [SerializeField] Transform direction;
     Rigidbody2D playerRigidbody;
     PlayerController playerController;
-    private float launchForce = 10f;
+    [SerializeField] private float launchForce;
     Vector3 launchDirection = Vector3.up;
 
     private void Awake()
@@ -31,7 +32,9 @@ public class Trampoline : MonoBehaviour
             case "HeightDependingLaunchpad":
                 if (collision.gameObject.CompareTag("Player"))
                 {
-                    playerRigidbody.AddForce(launchForce * launchDirection);
+                    float impactSpeed = MathF.Abs(collision.relativeVelocity.y);
+                    float dynamicForce = impactSpeed * launchForce;
+                    playerRigidbody.AddForce(dynamicForce * launchDirection, ForceMode2D.Impulse);
                 }
                 break;
         }
