@@ -1,17 +1,19 @@
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.Rendering;
-public class BreakableWall : PlayerController
+public class BreakableWall : MonoBehaviour
 {
     BoxCollider2D myCollider;
+    PlayerController playerController;
     private void Awake()
     {
       myCollider=GetComponent<BoxCollider2D>();   
+      playerController = FindAnyObjectByType<PlayerController>();
     }
 
     private void Update()
     {    
-        if(isGrounded)
+        if(playerController.slinging)
         {
            TriggerSet();
         }
