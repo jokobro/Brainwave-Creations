@@ -1,34 +1,31 @@
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.Rendering;
-public class BreakableWall : MonoBehaviour
+public  class BreakableWall: MonoBehaviour
 {
     BoxCollider2D myCollider;
-    PlayerController playerController;
+    public static bool isTriggerBox = false;
+
     private void Awake()
     {
-      myCollider=GetComponent<BoxCollider2D>();   
-      playerController = FindAnyObjectByType<PlayerController>();
+        myCollider= GetComponent<BoxCollider2D>();
     }
-
     private void Update()
-    {    
-        if(playerController.slinging)
-        {
-           TriggerSet();
-        }
-    }
-    public void TriggerSet()
     {
-        switch (myCollider.isTrigger)
-        {
-            case false:
-                myCollider.isTrigger = true;
-            break;
+        SetTrigger();
+    }
 
+    private void SetTrigger()
+    {
+        switch (isTriggerBox)
+        {
             case true:
-                myCollider.isTrigger = false;
+                myCollider.isTrigger = isTriggerBox;
+            break;
+            case false:
+                myCollider.isTrigger = isTriggerBox;
             break;
         }
+       
     }
 } 

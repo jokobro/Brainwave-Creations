@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
+       
     }
 
     private void Movement()
@@ -94,6 +95,7 @@ public class PlayerController : MonoBehaviour
                 isGrounded = true;
                 slinging = false;
                 moveActionMap.Enable();
+                BreakableWall.isTriggerBox= false;
                 playerController.enabled = true;
             break;
 

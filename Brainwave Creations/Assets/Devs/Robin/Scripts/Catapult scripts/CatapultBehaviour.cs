@@ -35,7 +35,7 @@ public class CatapultBehaviour : MonoBehaviour
     private void Awake()
     {
         // tag finding references
-        breakableWalls = GameObject.FindGameObjectsWithTag("Breakable wall");
+       // breakableWalls = GameObject.FindGameObjectsWithTag("Breakable wall");
         playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         // get component references
@@ -48,7 +48,7 @@ public class CatapultBehaviour : MonoBehaviour
     // turns the motor of the hingeJoint off and applies all the multiplier variables, and then turns it on to apply all of it at once.
     private IEnumerator LaunchCatapult()
     {
-        foreach (GameObject walls in breakableWalls)walls.GetComponent<BreakableWall>().TriggerSet();
+        BreakableWall.isTriggerBox= true;
         SliderUI.SetActive(true);
       
         yield return new WaitUntil(() => playerAimInput == true);

@@ -110,6 +110,8 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 131072
+  enemyZoomOutAmount: 2
+  slinging: 0
   PickedUpObjects: []
 --- !u!114 &2994353770092949588
 MonoBehaviour:
@@ -152,10 +154,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9baf085d-5c79-4215-a4d7-d36bbbf51fd8
     m_ActionName: 'Game/Jump[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a9de2dfb-3916-4fac-93cb-b9fe170144ca
-    m_ActionName: UI/New action
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9079577353103543211}
@@ -209,7 +207,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6965615ad283261478a3be61f967c243, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
