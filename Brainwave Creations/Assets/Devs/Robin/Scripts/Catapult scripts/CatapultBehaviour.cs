@@ -5,11 +5,14 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class CatapultBehaviour : MonoBehaviour
 {
+    // component references
     private HingeJoint2D joint;
     private JointMotor2D motor;
     private Camera mainCamera;
     private Rigidbody2D playerRb;
     private PlayerController playerController;
+    private GameObject[] breakableWalls;
+    //variables
     private float defaultCameraSize;
 
     [Header("Motor properties")]
@@ -31,16 +34,21 @@ public class CatapultBehaviour : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        // tag finding references
+        breakableWalls = GameObject.FindGameObjectsWithTag("Breakable wall");
         playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        // get component references
         playerController = FindAnyObjectByType<PlayerController>();
         joint = GetComponent<HingeJoint2D>();
+        // variable set
         motor = joint.motor;
         defaultCameraSize = mainCamera.orthographicSize;
     }
     // turns the motor of the hingeJoint off and applies all the multiplier variables, and then turns it on to apply all of it at once.
     private IEnumerator LaunchCatapult()
     {
+        foreach (GameObject walls in breakableWalls)walls.GetComponent<BreakableWall>().TriggerSet();
         SliderUI.SetActive(true);
       
         yield return new WaitUntil(() => playerAimInput == true);
@@ -82,5 +90,4 @@ public class CatapultBehaviour : MonoBehaviour
         StartCoroutine(LaunchCatapult());
         StartCoroutine(CameraZoomOut());
     }
-   
 }

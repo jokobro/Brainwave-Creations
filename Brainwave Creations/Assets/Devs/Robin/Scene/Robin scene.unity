@@ -1811,6 +1811,7 @@ GameObject:
   - component: {fileID: 1890792052}
   - component: {fileID: 1890792051}
   - component: {fileID: 1890792053}
+  - component: {fileID: 1890792054}
   m_Layer: 0
   m_Name: Square
   m_TagString: Breakable wall
@@ -1918,7 +1919,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1934,6 +1935,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1890792054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890792050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a104443759cad34baacb11b9bc9c2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catapultBehaviour: {fileID: 0}
+  inputActions: {fileID: 0}
+  jumpForce: 0
+  interactionRange: 0
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyZoomOutAmount: 0
+  slinging: 0
+  PickedUpObjects: []
 --- !u!1001 &2001707919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2356,11 +2379,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5752323508746825840, guid: 69e61500cda9f394da9037c58d932eef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21
+      value: -33.93
       objectReference: {fileID: 0}
     - target: {fileID: 5752323508746825840, guid: 69e61500cda9f394da9037c58d932eef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.72
+      value: 1.79
       objectReference: {fileID: 0}
     - target: {fileID: 5752323508746825840, guid: 69e61500cda9f394da9037c58d932eef, type: 3}
       propertyPath: m_LocalPosition.z

@@ -9,13 +9,12 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [HideInInspector] public CatapultBehaviour catapultBehaviour;
     [SerializeField] private InputActionAsset inputActions;
-
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
     PlayerController playerController;
     Camera mainCamera;
+    //variables
     float defaultCameraSize;
-    float basefrition;
 
     [Header("Player Settings")]
     [SerializeField] private float jumpForce;
@@ -26,7 +25,7 @@ public class PlayerController : MonoBehaviour
     public bool slinging = false;
     private float timer = 0;
     private bool timerIsActive = false;
-    private bool isGrounded = false;
+    protected bool isGrounded = false;
     private float moveSpeed = 6f;
     Vector2 inputMovement;
 
@@ -41,7 +40,6 @@ public class PlayerController : MonoBehaviour
         defaultCameraSize = mainCamera.orthographicSize;      
        //setting Rigidbody references
         rigidBody = GetComponent<Rigidbody2D>();
-        basefrition = rigidBody.sharedMaterial.friction;
        //setting Input references
         moveActionMap = inputActions.FindActionMap("Move");
         moveActionMap.Enable();
@@ -88,7 +86,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         switch (collision.gameObject.tag)
         {
@@ -97,7 +95,6 @@ public class PlayerController : MonoBehaviour
                 slinging = false;
                 moveActionMap.Enable();
                 playerController.enabled = true;
-                rigidBody.sharedMaterial.friction = .4f;
             break;
 
             case "Side wall":
@@ -126,24 +123,17 @@ public class PlayerController : MonoBehaviour
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 catapultBehaviour.CatapultBehaviourStart();
             break;
-
-            case "Breakable wall":
-                if (slinging)
-                {
-                    collision.gameObject.SetActive(false);
-                    StartCoroutine(SetPlayerFriction(0,.5f));
-                    rigidBody.linearVelocityX = rigidBody.linearVelocityX / 2;
-                }
-            break;
-
         }
     }
 
-    private IEnumerator SetPlayerFriction(float frictionAmount,float resetTime)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        rigidBody.sharedMaterial.friction = frictionAmount;
-        yield return new WaitForSeconds(resetTime);
-        rigidBody.sharedMaterial.friction = basefrition;
+        switch (collision.gameObject.tag)
+        {
+            case "Breakable wall":
+                collision.gameObject.SetActive(false);
+            break;
+        }
     }
     private void GameOver()
     {
