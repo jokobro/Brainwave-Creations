@@ -1,3 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement class="screen screen-background" style="flex-grow: 1; background-image: none;" />
+    <engine:VisualElement name="VisualElement" class="screen screen-background" style="flex-grow: 1; background-image: none;">
+        <engine:Label text="10000" name="ScoreText" style="font-size: 44px; height: 60px; width: 250px;" />
+        <engine:Label text="time" name="TimeText" style="width: 250px; font-size: 44px; height: 60px; top: auto; white-space: pre-wrap; -unity-text-align: middle-left;" />
+    </engine:VisualElement>
 </engine:UXML>
