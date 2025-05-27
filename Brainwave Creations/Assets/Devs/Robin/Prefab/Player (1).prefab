@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2994353770092949588}
   - component: {fileID: 7588602994070149861}
   - component: {fileID: 7502248699349286371}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Player (1)
   m_TagString: Player
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -174,8 +174,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9079577353103543211}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: PlaceBombOnCatapult
-        m_Mode: 1
+        m_MethodName: PlaceBombBehaviourCheck
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -216,7 +216,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &7502248699349286371
 BoxCollider2D:

@@ -50,13 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Movement();
-
-        if (timerIsActive)
-        {
-            timer -= Time.deltaTime;
-        }
-       
+        Movement();   
     }
 
     private void Movement()
@@ -127,7 +121,7 @@ public class PlayerController : MonoBehaviour
             break;
         }
     }
-    private void GameOver()
+    public void GameOver()
     {
         SceneManager.LoadScene(2);
         gameObject.SetActive(false);
@@ -149,25 +143,39 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void PlaceBombOnCatapult()
+    
+    public void PlaceBombBehaviourCheck(InputAction.CallbackContext context)
     {
-        timerIsActive = true;
-        if (timer <= 0)
+        if (context.started)
         {
             Vector2 forward = transform.TransformDirection(Vector2.right);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, forward, interactionRange, interactableLayer);
-
-            if (PickedUpObjects.Count != 0 && hit.collider != null && hit.collider.gameObject.name == "Bomb catapult")
+            if (hit.collider != null && PickedUpObjects.Count != 0)
             {
-                catapultBehaviour = hit.collider.GetComponent<CatapultBehaviour>();
-                catapultBehaviour.CatapultBehaviourStart();
-                var bomb = Instantiate(PickedUpObjects[0], catapultBombSpawn.position, Quaternion.identity);
-                bomb.gameObject.SetActive(true);
-                PickedUpObjects.RemoveAt(0);
-                timerIsActive = false;
-                timer = 6;
+                // Interaction when placing bomb on the catapult
+                if (hit.collider.gameObject.name == "Bomb catapult")
+                {
+                    catapultBehaviour = hit.collider.GetComponent<CatapultBehaviour>();
+                    catapultBehaviour.CatapultBehaviourStart();
+                    PlaceBomb(catapultBombSpawn.transform);
+
+                }
+                else if (hit.collider.gameObject.CompareTag("Breakable wall"))
+                {
+                    StartCoroutine(PickedUpObjects[0].GetComponent<BombBehaviour>().ExplodeBomb());
+                    PlaceBomb(transform);
+                }
             }
         }
+    }
+
+    private void PlaceBomb(Transform spawnPos)
+    {
+        PickedUpObjects[0].transform.position = spawnPos.position;
+        PickedUpObjects[0].gameObject.SetActive(true);
+        PickedUpObjects.RemoveAt(0);
+        timerIsActive = false;
+        timer = 6;
     }
 
     private IEnumerator EnemyCollisionZoomOut()
