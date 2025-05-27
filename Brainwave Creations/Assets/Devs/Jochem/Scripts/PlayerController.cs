@@ -127,16 +127,6 @@ public class PlayerController : MonoBehaviour
             break;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        switch (collision.gameObject.tag)
-        {
-            case "Breakable wall":
-                collision.gameObject.SetActive(false);
-            break;
-        }
-    }
     private void GameOver()
     {
         SceneManager.LoadScene(2);
