@@ -11,7 +11,7 @@ public class CatapultBehaviour : MonoBehaviour
     private Camera mainCamera;
     private Rigidbody2D playerRb;
     private PlayerController playerController;
-    private GameObject[] breakableWalls;
+    private FollowPlayer followPlayer;
     //variables
     private float defaultCameraSize;
 
@@ -35,12 +35,12 @@ public class CatapultBehaviour : MonoBehaviour
     private void Awake()
     {
         // tag finding references
-       // breakableWalls = GameObject.FindGameObjectsWithTag("Breakable wall");
         playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         // get component references
         playerController = FindAnyObjectByType<PlayerController>();
         joint = GetComponent<HingeJoint2D>();
+        followPlayer = mainCamera.GetComponent<FollowPlayer>();
         // variable set
         motor = joint.motor;
         defaultCameraSize = mainCamera.orthographicSize;
@@ -72,6 +72,7 @@ public class CatapultBehaviour : MonoBehaviour
     {
         WaitForSeconds wait = new WaitForSeconds(resetTimer);
         yield return wait;
+        followPlayer.playerTarget = playerRb.transform;
         joint.useLimits = true;
         playerAimInput = false;
         SliderUI.SetActive(false);
@@ -80,9 +81,12 @@ public class CatapultBehaviour : MonoBehaviour
     private IEnumerator CameraZoomOut()
     {
         mainCamera.orthographicSize = defaultCameraSize + zoomOutAmount;
+        followPlayer.playerTarget = direction;
+        mainCamera.farClipPlane = 1e+08f;
         yield return new WaitUntil(() => playerAimInput == true);
         yield return new WaitForSeconds(waitUntilZoomIn);
         mainCamera.orthographicSize = defaultCameraSize;
+        mainCamera.farClipPlane = 1000;
     }
 
     public void CatapultBehaviourStart()

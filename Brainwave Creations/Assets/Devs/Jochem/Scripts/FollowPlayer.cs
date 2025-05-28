@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    [SerializeField] private Transform playerTarget;
+    public Transform playerTarget;
     [SerializeField] private Vector3 offSet;
     private float smoothSpeed = 0.125f;
 
