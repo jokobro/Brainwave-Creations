@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     Transform catapultBombSpawn;
     PlayerController playerController;
     Camera mainCamera;
+    Animator animator;
     //variables
     float defaultCameraSize;
 
@@ -23,8 +24,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float enemyZoomOutAmount;
 
     public bool slinging = false;
-    private float timer = 0;
-    private bool timerIsActive = false;
     protected bool isGrounded = false;
     private float moveSpeed = 6f;
     Vector2 inputMovement;
@@ -34,18 +33,20 @@ public class PlayerController : MonoBehaviour
     private InputActionMap moveActionMap;
 
     private void Awake()
-    {      
+    {  
        //setting Camera references
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         defaultCameraSize = mainCamera.orthographicSize;      
-       //setting Rigidbody references
-        rigidBody = GetComponent<Rigidbody2D>();
        //setting Input references
         moveActionMap = inputActions.FindActionMap("Move");
         moveActionMap.Enable();
-        //rest
+        //GetComponent refs
         playerController = GetComponent<PlayerController>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         /* catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
+        //setting animator variables
+        animator.SetBool("IsGrounded", isGrounded);
     }
 
     private void Update()
@@ -174,8 +175,6 @@ public class PlayerController : MonoBehaviour
         PickedUpObjects[0].transform.position = spawnPos.position;
         PickedUpObjects[0].gameObject.SetActive(true);
         PickedUpObjects.RemoveAt(0);
-        timerIsActive = false;
-        timer = 6;
     }
 
     private IEnumerator EnemyCollisionZoomOut()
