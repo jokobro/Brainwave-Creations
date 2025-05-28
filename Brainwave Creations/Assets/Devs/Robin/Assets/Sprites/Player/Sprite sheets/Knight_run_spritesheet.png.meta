@@ -359,7 +359,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Knight_run_spritesheet_0: -8528671618863433610
+      Knight_run_spritesheet_1: -1045636129785218624
+      Knight_run_spritesheet_2: 6999902703985807119
+      Knight_run_spritesheet_3: 6717218651012612583
+      Knight_run_spritesheet_4: -5873580204451004254
+      Knight_run_spritesheet_5: 4401830549477976963
+      Knight_run_spritesheet_6: 6364915536527016592
+      Knight_run_spritesheet_7: -3296171947105733521
+      Knight_run_spritesheet_8: 6450365000099617777
+      Knight_run_spritesheet_9: 5823965935892072612
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

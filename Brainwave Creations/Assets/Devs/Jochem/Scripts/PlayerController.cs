@@ -46,12 +46,13 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         /* catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
         //setting animator variables
-        animator.SetBool("IsGrounded", isGrounded);
+       
     }
 
     private void Update()
     {
-        Movement();   
+        Movement();
+        animator.SetBool("IsGrounded", isGrounded);
     }
 
     private void Movement()
@@ -62,14 +63,17 @@ public class PlayerController : MonoBehaviour
     public void HandleMoving(InputAction.CallbackContext context)
     {
         inputMovement = context.ReadValue<Vector2>();
+        animator.SetFloat("InputMovement", inputMovement.x);
 
         if (inputMovement.x == -1)
         {
             gameObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
+          
         }
         else if (inputMovement.x == 1)
         {
             gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+          
         }
     }
 
