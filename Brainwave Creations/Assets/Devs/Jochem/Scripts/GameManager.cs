@@ -5,12 +5,12 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private float score = 10000;
     private float decreaseRate = 10f;
-
-    [SerializeField] private float timer;
+    private float timer = 0f;
     private float increaseTime = 1f;
     private void Awake()
     {
         instance = this;
+        score = Mathf.Round(score * 10.0f);
     }
 
     private void Update()
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         Label timeText = root.Q<Label>("TimeText");
         scoreText.text = ($"{score}");
         timeText.text = ($"{timer}");
+        timeText.text = $"{Mathf.Round(timer * 100f) / 100f}";
     }
 
     public void AddScore(int pointsAmount)
