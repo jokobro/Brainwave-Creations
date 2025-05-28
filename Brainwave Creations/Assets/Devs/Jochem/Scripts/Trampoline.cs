@@ -1,11 +1,15 @@
+using System;
 using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
     [SerializeField] private float jumpforce;
-    [SerializeField]Transform direction;
+    [SerializeField] Transform direction;
     Rigidbody2D playerRigidbody;
     PlayerController playerController;
+    [SerializeField] private float launchForce;
+    Vector3 launchDirection = Vector3.up;
+
     private void Awake()
     {
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
@@ -14,12 +18,25 @@ public class Trampoline : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        switch (gameObject.name)
         {
-            playerController.slinging = true;
-            Vector2 vectorDirection = direction.position - transform.position;
-            if(vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled= false;
-            playerRigidbody.AddForce(jumpforce * vectorDirection.normalized, ForceMode2D.Impulse);
+            case "DirectionalLaunchpad":
+                if (collision.gameObject.CompareTag("Player"))
+                {
+                    playerController.slinging = true;
+                    Vector2 vectorDirection = direction.position - transform.position;
+                    if (vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled = false;
+                    playerRigidbody.AddForce(jumpforce * vectorDirection.normalized, ForceMode2D.Impulse);
+                }
+                break;
+            case "HeightDependingLaunchpad":
+                if (collision.gameObject.CompareTag("Player"))
+                {
+                    float impactSpeed = MathF.Abs(collision.relativeVelocity.y);
+                    float dynamicForce = impactSpeed * launchForce;
+                    playerRigidbody.AddForce(dynamicForce * launchDirection, ForceMode2D.Impulse);
+                }
+                break;
         }
     }
 }
