@@ -63,17 +63,15 @@ public class PlayerController : MonoBehaviour
     public void HandleMoving(InputAction.CallbackContext context)
     {
         inputMovement = context.ReadValue<Vector2>();
-        animator.SetFloat("InputMovement", inputMovement.x);
+        animator.SetFloat("IsMoving", inputMovement.x);
 
         if (inputMovement.x == -1)
         {
-            gameObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
-          
+           gameObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if (inputMovement.x == 1)
         {
-            gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
-          
+           gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -98,10 +96,6 @@ public class PlayerController : MonoBehaviour
                 playerController.enabled = true;
             break;
 
-            case "Side wall":
-                moveActionMap.Disable();
-            break;
-
             case "Void":
                 GameOver();
             break;
@@ -123,6 +117,16 @@ public class PlayerController : MonoBehaviour
             case "Catapult collider":
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 catapultBehaviour.CatapultBehaviourStart();
+            break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch(collision.gameObject.tag)
+        {
+            case "Side wall":
+                moveActionMap.Disable();
             break;
         }
     }

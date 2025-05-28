@@ -34,7 +34,7 @@ public class BombBehaviour : MonoBehaviour
 
         for(int i = 0; i < hitCollider.Length; i++)
         {
-            if (hitCollider[i].GetComponent<PlayerController>()!= null)
+            if (hitCollider[i].gameObject.CompareTag("Player"))
             {
                 hitCollider[i].GetComponent<PlayerController>().GameOver();
             }
