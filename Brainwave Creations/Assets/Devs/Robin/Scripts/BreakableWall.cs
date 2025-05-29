@@ -1,6 +1,8 @@
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+
 public  class BreakableWall: MonoBehaviour
 {
     BoxCollider2D myCollider;
@@ -32,5 +34,6 @@ public  class BreakableWall: MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(gameObject);
+        SceneManager.LoadScene(3);
     }
 } 

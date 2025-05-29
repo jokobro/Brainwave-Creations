@@ -82,7 +82,7 @@ public class CatapultBehaviour : MonoBehaviour
     {
         mainCamera.orthographicSize = defaultCameraSize + zoomOutAmount;
         followPlayer.playerTarget = direction;
-        mainCamera.farClipPlane = 1e+08f;
+        mainCamera.farClipPlane = 1000000000000000000000f;
         yield return new WaitUntil(() => playerAimInput == true);
         yield return new WaitForSeconds(waitUntilZoomIn);
         mainCamera.orthographicSize = defaultCameraSize;
