@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
             case "Ground":
                 isGrounded = true;
                 slinging = false;
-                inputActions.Enable();
+                moveActionMap.Enable();
                 BreakableWall.isTriggerBox= false;
                 playerController.enabled = true;
             break;
@@ -116,7 +116,6 @@ public class PlayerController : MonoBehaviour
             break;
 
             case "Catapult collider":
-                inputActions.Disable();
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 transform.position = catapultBehaviour.spawnPos.position;
                 catapultBehaviour.CatapultBehaviourStart();
@@ -129,7 +128,7 @@ public class PlayerController : MonoBehaviour
         switch(collision.gameObject.tag)
         {
             case "Side wall":
-                inputActions.Disable();
+                moveActionMap.Disable();
             break;
 
             case "Check point":
