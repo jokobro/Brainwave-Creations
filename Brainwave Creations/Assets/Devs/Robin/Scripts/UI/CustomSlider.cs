@@ -44,6 +44,7 @@ public class CustomSlider : MonoBehaviour
         if (slider.value > 0 && Input.GetMouseButtonUp(0))
         {
           playerController.catapultBehaviour.playerAimInput = true;
+            Debug.Log(playerController.catapultBehaviour.slingPower);
         }
     }
 }

@@ -14,6 +14,7 @@ TagManager:
   - trampoline
   - Catapult collider
   - Breakable wall
+  - Check point
   layers:
   - Default
   - TransparentFX

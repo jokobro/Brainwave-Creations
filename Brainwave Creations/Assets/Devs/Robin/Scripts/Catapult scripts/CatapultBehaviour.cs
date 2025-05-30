@@ -16,15 +16,16 @@ public class CatapultBehaviour : MonoBehaviour
     private float defaultCameraSize;
 
     [Header("Motor properties")]
-    public float motorForce;
     [HideInInspector] public bool playerAimInput;
     [HideInInspector] public float slingPower;
+    public Transform spawnPos;
     public float maxSlingPower;
+
+    [SerializeField] private float motorForce;
     [SerializeField] private GameObject SliderUI;
     [SerializeField] private float motorSpeed;
     [SerializeField] private float resetTimer;
     [SerializeField] Transform direction;
-    
 
     [Header("zoom properties")]
     [SerializeField] float zoomOutAmount;
@@ -49,12 +50,12 @@ public class CatapultBehaviour : MonoBehaviour
     private IEnumerator LaunchCatapult()
     {
         BreakableWall.isTriggerBox= true;
+        playerController.enabled = false;
         SliderUI.SetActive(true);
       
         yield return new WaitUntil(() => playerAimInput == true);
         //setting player variables
         playerController.slinging = true;
-        playerController.enabled = false;
         // setting motor properties
         joint.useMotor = false;
         joint.useLimits = false;

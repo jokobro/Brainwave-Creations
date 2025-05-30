@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [HideInInspector] public CatapultBehaviour catapultBehaviour;
     [SerializeField] private InputActionAsset inputActions;
+    Transform checkPoint;
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
     PlayerController playerController;
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour
             case "Ground":
                 isGrounded = true;
                 slinging = false;
-                moveActionMap.Enable();
+                inputActions.Enable();
                 BreakableWall.isTriggerBox= false;
                 playerController.enabled = true;
             break;
@@ -115,7 +116,9 @@ public class PlayerController : MonoBehaviour
             break;
 
             case "Catapult collider":
+                inputActions.Disable();
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
+                transform.position = catapultBehaviour.spawnPos.position;
                 catapultBehaviour.CatapultBehaviourStart();
             break;
         }
@@ -126,14 +129,25 @@ public class PlayerController : MonoBehaviour
         switch(collision.gameObject.tag)
         {
             case "Side wall":
-                moveActionMap.Disable();
+                inputActions.Disable();
+            break;
+
+            case "Check point":
+                checkPoint = collision.gameObject.transform;
             break;
         }
     }
     public void GameOver()
     {
-        SceneManager.LoadScene(2);
-        gameObject.SetActive(false);
+        if (checkPoint == null)
+        {
+            SceneManager.LoadScene(2);
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.transform.position = checkPoint.transform.position;
+        }
     }
     public void PickupThrowableObjects(int id, GameObject pickUp)
     {
