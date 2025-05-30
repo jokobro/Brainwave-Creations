@@ -38,7 +38,7 @@ public class BombBehaviour : MonoBehaviour
             {
                 hitCollider[i].GetComponent<PlayerController>().GameOver();
             }
-            else
+            else if (hitCollider[i].gameObject.CompareTag("Breakable wall"))
             {
                 hitCollider[i].gameObject.SetActive(false);
             }        

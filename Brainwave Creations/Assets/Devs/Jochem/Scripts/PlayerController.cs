@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
                 else if (hit.collider.gameObject.CompareTag("Breakable wall"))
                 {
                     StartCoroutine(PickedUpObjects[0].GetComponent<BombBehaviour>().ExplodeBomb());
-                    PlaceBomb(transform);
+                    PlaceBomb(hit.collider.transform);
                 }
             }
         }
