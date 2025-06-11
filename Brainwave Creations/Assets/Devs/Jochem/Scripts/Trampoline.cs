@@ -3,16 +3,20 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
+    [Header("Variables")]
     [SerializeField] private float jumpforce;
     [SerializeField] Transform direction;
+    [SerializeField] private float launchForce;
+    //refs
+    Vector3 launchDirection = Vector3.up;
     Rigidbody2D playerRigidbody;
     PlayerController playerController;
-    [SerializeField] private float launchForce;
-    Vector3 launchDirection = Vector3.up;
+    Animator playerAnimator;
 
     private void Awake()
     {
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        playerAnimator = playerRigidbody.GetComponent<Animator>();
         playerController = FindAnyObjectByType<PlayerController>();
     }
 
@@ -23,6 +27,7 @@ public class Trampoline : MonoBehaviour
             case "DirectionalLaunchpad":
                 if (collision.gameObject.CompareTag("Player"))
                 {
+                    playerAnimator.SetBool("IsGrounded", false);
                     playerController.slinging = true;
                     Vector2 vectorDirection = direction.position - transform.position;
                     if (vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled = false;

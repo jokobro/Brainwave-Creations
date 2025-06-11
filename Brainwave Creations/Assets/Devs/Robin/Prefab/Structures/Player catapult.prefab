@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Catapult collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9065314581535389670
 Transform:
@@ -156,10 +156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876ef642d16d35f48b2771e67e2264a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorForce: 500
   playerAimInput: 0
   slingPower: 0
+  spawnPos: {fileID: 0}
   maxSlingPower: 2
+  motorForce: 500
   SliderUI: {fileID: 0}
   motorSpeed: 500
   resetTimer: 0.5
@@ -328,7 +329,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7644157781708582549
 Transform:
@@ -361,7 +362,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1545201041823388590
 Transform:
@@ -496,7 +497,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5154576573343442842
 Transform:

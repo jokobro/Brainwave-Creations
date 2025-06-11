@@ -47,19 +47,16 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-
     private void Update()
     {
         Movement();
         GroundCheck();
         animator.SetBool("IsGrounded", isGrounded);
     }
-
     private void Movement()
     {
         rigidBody.linearVelocity = new Vector2(inputMovement.x * moveSpeed, rigidBody.linearVelocity.y);
     }
-
     public void HandleMoving(InputAction.CallbackContext context)
     {
         inputMovement = context.ReadValue<Vector2>();
@@ -74,7 +71,6 @@ public class PlayerController : MonoBehaviour
            gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
-
     public void HandeleJumping(InputAction.CallbackContext context)
     {
         if (isGrounded && context.performed)
@@ -83,9 +79,9 @@ public class PlayerController : MonoBehaviour
             rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, jumpForce);
         }
     }
-
     private void GroundCheck()
     {
+        // shoots a raycast to the ground, if it isnt touching the ground the isground bool is false
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, groundLayer);
         if (hit) 
         {
@@ -94,12 +90,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             isGrounded= false;
-        }
+        }    
     }
-
     private IEnumerator HandleJumpAnim()
     {
-        //waits until the jumping anim is finished and then switches to the falling anim
+        //waits until the jumping anim is finished and then switches it off
         animator.SetBool("IsJumping", true);
         yield return new WaitForSeconds(.4f);
         animator.SetBool("IsJumping", false);
@@ -137,6 +132,7 @@ public class PlayerController : MonoBehaviour
             case "Catapult collider":
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 transform.position = catapultBehaviour.spawnPos.position;
+                rigidBody.linearVelocityX = 0;
                 catapultBehaviour.CatapultBehaviourStart();
             break;
         }

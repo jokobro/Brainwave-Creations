@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2216024160673863307
 Transform:
@@ -156,11 +156,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876ef642d16d35f48b2771e67e2264a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorSpeed: 200
+  playerAimInput: 0
+  slingPower: 0
+  spawnPos: {fileID: 0}
+  maxSlingPower: 0
   motorForce: 200
+  SliderUI: {fileID: 0}
+  motorSpeed: 200
   resetTimer: 1
-  waitForZoomOut: 5
+  direction: {fileID: 0}
   zoomOutAmount: 10
+  waitUntilZoomIn: 0
 --- !u!60 &5067794856817627560
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -325,7 +331,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &83400365205870283
 Transform:
@@ -459,7 +465,7 @@ GameObject:
   m_TagString: Bomb spawn point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4274777782250860205
 Transform:
