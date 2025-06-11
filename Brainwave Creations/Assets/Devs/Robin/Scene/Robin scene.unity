@@ -6532,6 +6532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8409301177119298777, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6619,11 +6623,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
       propertyPath: m_Size.y
-      value: 20.699581
+      value: 20.47303
       objectReference: {fileID: 0}
     - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
       propertyPath: m_Offset.y
-      value: 0.109790325
+      value: -0.003484249
       objectReference: {fileID: 0}
     - target: {fileID: 664336730782279845, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
       propertyPath: m_LocalScale.y

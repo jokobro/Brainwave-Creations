@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] int interactionRange;
     [SerializeField] LayerMask interactableLayer;
+    [SerializeField] LayerMask groundLayer;
     [SerializeField] float enemyZoomOutAmount;
 
     public bool slinging = false;
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Movement();
+        GroundCheck();
         animator.SetBool("IsGrounded", isGrounded);
     }
 
@@ -84,7 +86,15 @@ public class PlayerController : MonoBehaviour
 
     private void GroundCheck()
     {
-        Physics2D.Raycast(transform.position, Vector2.down);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, groundLayer);
+        if (hit) 
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded= false;
+        }
     }
 
     private IEnumerator HandleJumpAnim()
@@ -100,7 +110,6 @@ public class PlayerController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Ground":
-                isGrounded = true;
                 slinging = false;
                 moveActionMap.Enable();
                 BreakableWall.isTriggerBox= false;
