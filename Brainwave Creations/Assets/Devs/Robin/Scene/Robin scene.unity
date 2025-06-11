@@ -1626,6 +1626,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 956154632}
     m_Modifications:
+    - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      propertyPath: m_Size.x
+      value: 21.563755
+      objectReference: {fileID: 0}
+    - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      propertyPath: m_Size.y
+      value: 20.696758
+      objectReference: {fileID: 0}
+    - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.54187775
+      objectReference: {fileID: 0}
+    - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.108379364
+      objectReference: {fileID: 0}
     - target: {fileID: 664336730782279845, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -1903,6 +1919,57 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
+--- !u!1 &546197482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1820926873569056074, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+  m_PrefabInstance: {fileID: 1798237198}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &546197485
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546197482}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.63624763, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.48, y: 20.48}
+    newSize: {x: 20.48, y: 20.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 21.752495, y: 20.48}
+  m_EdgeRadius: 0
 --- !u!4 &547809930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7925039664248771871, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
@@ -2221,6 +2288,14 @@ PrefabInstance:
     - target: {fileID: 1498424025339849937, guid: 16ce2b9236f02614f866d88fd4c6f03b, type: 3}
       propertyPath: m_SortingLayerID
       value: -468808349
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400531255754842768, guid: 16ce2b9236f02614f866d88fd4c6f03b, type: 3}
+      propertyPath: m_Size.y
+      value: 6.693801
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400531255754842768, guid: 16ce2b9236f02614f866d88fd4c6f03b, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.340263
       objectReference: {fileID: 0}
     - target: {fileID: 6398752944703797796, guid: 16ce2b9236f02614f866d88fd4c6f03b, type: 3}
       propertyPath: m_Name
@@ -3336,6 +3411,14 @@ PrefabInstance:
     - target: {fileID: 2017472953791046230, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
       propertyPath: m_Name
       value: stone dirt ground (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124000278455617095, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
+      propertyPath: m_Size.x
+      value: 22.15787
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124000278455617095, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.8389349
       objectReference: {fileID: 0}
     - target: {fileID: 5891164756363132197, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4649,6 +4732,14 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -468808349
       objectReference: {fileID: 0}
+    - target: {fileID: 5400531255754842768, guid: 16ce2b9236f02614f866d88fd4c6f03b, type: 3}
+      propertyPath: m_Size.y
+      value: 6.3564577
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400531255754842768, guid: 16ce2b9236f02614f866d88fd4c6f03b, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.5089345
+      objectReference: {fileID: 0}
     - target: {fileID: 6398752944703797796, guid: 16ce2b9236f02614f866d88fd4c6f03b, type: 3}
       propertyPath: m_Name
       value: tree platform side_0
@@ -5525,6 +5616,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 956154632}
     m_Modifications:
+    - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      propertyPath: m_Size.y
+      value: 20.81213
+      objectReference: {fileID: 0}
+    - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.16606522
+      objectReference: {fileID: 0}
     - target: {fileID: 664336730782279845, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -5581,13 +5680,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone floor_0 (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 664336730782279845, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1927212660}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1820926873569056074, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 546197485}
   m_SourcePrefab: {fileID: 100100000, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
 --- !u!4 &1812612605 stripped
 Transform:
@@ -5841,6 +5944,14 @@ PrefabInstance:
     - target: {fileID: 2017472953791046230, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
       propertyPath: m_Name
       value: stone dirt ground (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124000278455617095, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
+      propertyPath: m_Size.x
+      value: 22.286932
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124000278455617095, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.9034662
       objectReference: {fileID: 0}
     - target: {fileID: 5891164756363132197, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6438,6 +6549,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone dirt ground
       objectReference: {fileID: 0}
+    - target: {fileID: 3028712824173992185, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
+      propertyPath: m_Size.x
+      value: 21.512531
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028712824173992185, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.51626635
+      objectReference: {fileID: 0}
     - target: {fileID: 5891164756363132197, guid: 51c53e565150a834e9ca1aab434d2ca0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.89
@@ -6498,6 +6617,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 956154632}
     m_Modifications:
+    - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      propertyPath: m_Size.y
+      value: 20.699581
+      objectReference: {fileID: 0}
+    - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.109790325
+      objectReference: {fileID: 0}
     - target: {fileID: 664336730782279845, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.36219

@@ -45,9 +45,6 @@ public class PlayerController : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        /* catapultBombSpawn = GameObject.FindGameObjectWithTag("Bomb spawn point").gameObject.transform;*/
-        //setting animator variables
-       
     }
 
     private void Update()
@@ -80,9 +77,22 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded && context.performed)
         {
+            StartCoroutine(HandleJumpAnim());
             rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, jumpForce);
-            isGrounded = false;
         }
+    }
+
+    private void GroundCheck()
+    {
+        Physics2D.Raycast(transform.position, Vector2.down);
+    }
+
+    private IEnumerator HandleJumpAnim()
+    {
+        //waits until the jumping anim is finished and then switches to the falling anim
+        animator.SetBool("IsJumping", true);
+        yield return new WaitForSeconds(.4f);
+        animator.SetBool("IsJumping", false);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -156,12 +166,12 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("object met nummer 1 is opgepakt");
                 PickedUpObjects.Add(pickUp);
                 pickUp.SetActive(false);
-                break;
+            break;
             case 1:
                 Debug.Log("object met nummer 2 is opgepakt");
                 PickedUpObjects.Add(pickUp);
                 pickUp.SetActive(false);
-                break;
+            break;
         }
     }
 
