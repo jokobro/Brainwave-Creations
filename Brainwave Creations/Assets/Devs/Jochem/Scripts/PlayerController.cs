@@ -102,10 +102,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        slinging = false;
+
         switch (collision.gameObject.tag)
         {
             case "Ground":
-                slinging = false;
                 moveActionMap.Enable();
                 BreakableWall.isTriggerBox= false;
                 playerController.enabled = true;
