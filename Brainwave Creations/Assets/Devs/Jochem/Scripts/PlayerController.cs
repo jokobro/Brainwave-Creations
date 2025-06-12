@@ -8,32 +8,30 @@ public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     [HideInInspector] public CatapultBehaviour catapultBehaviour;
-    [SerializeField] private InputActionAsset inputActions;
+    [SerializeField] InputActionAsset inputActions;
     Transform checkPoint;
     Rigidbody2D rigidBody;
     Transform catapultBombSpawn;
     PlayerController playerController;
     Camera mainCamera;
     Animator animator;
+    InputActionMap moveActionMap;
     //variables
     float defaultCameraSize;
+    Vector2 inputMovement;
 
     [Header("Player Settings")]
-    [SerializeField] private float jumpForce;
+    [SerializeField] float jumpForce;
     [SerializeField] int interactionRange;
     [SerializeField] LayerMask interactableLayer;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float enemyZoomOutAmount;
-
+    [SerializeField] List<GameObject> PickedUpObjects = new List<GameObject>();
     public bool slinging = false;
+
     protected bool isGrounded = false;
     private float moveSpeed = 6f;
-    Vector2 inputMovement;
-
-    [SerializeField] private List<GameObject> PickedUpObjects = new List<GameObject>();
-
-    private InputActionMap moveActionMap;
-
+    
     private void Awake()
     {  
        //setting Camera references
@@ -51,7 +49,6 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         GroundCheck();
-        animator.SetBool("IsGrounded", isGrounded);
     }
     private void Movement()
     {
@@ -82,6 +79,7 @@ public class PlayerController : MonoBehaviour
     private void GroundCheck()
     {
         // shoots a raycast to the ground, if it isnt touching the ground the isground bool is false
+        animator.SetBool("IsGrounded", isGrounded);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, groundLayer);
         if (hit) 
         {
@@ -94,7 +92,7 @@ public class PlayerController : MonoBehaviour
     }
     private IEnumerator HandleJumpAnim()
     {
-        //waits until the jumping anim is finished and then switches it off
+        //waits until the jumping anim is finished and then switches it off, it will afterwards switch into the falling anim
         animator.SetBool("IsJumping", true);
         yield return new WaitForSeconds(.4f);
         animator.SetBool("IsJumping", false);

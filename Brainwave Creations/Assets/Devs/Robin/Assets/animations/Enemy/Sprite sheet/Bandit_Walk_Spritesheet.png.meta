@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: 823290437f780984fb8ae10c5c8074bb
+guid: 2af92107093e82241bb844675875c028
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6101805063727816270
-    second: Knight_jump_spritesheet_0
+      213: 6085643183188100370
+    second: Bandit_Walk_Spritesheet_0
   - first:
-      213: -6471408879900895119
-    second: Knight_jump_spritesheet_1
+      213: -8914023672630087172
+    second: Bandit_Walk_Spritesheet_1
   - first:
-      213: 6405604046519879803
-    second: Knight_jump_spritesheet_2
+      213: -5122937468466541497
+    second: Bandit_Walk_Spritesheet_2
   - first:
-      213: 3308607206145157869
-    second: Knight_jump_spritesheet_3
+      213: 7195912698837737829
+    second: Bandit_Walk_Spritesheet_3
   - first:
-      213: 5351579810649029304
-    second: Knight_jump_spritesheet_4
+      213: -5980646884492261951
+    second: Bandit_Walk_Spritesheet_4
   - first:
-      213: 5655733516804382777
-    second: Knight_jump_spritesheet_5
+      213: 2431788167423832694
+    second: Bandit_Walk_Spritesheet_5
+  - first:
+      213: 3484759541118889707
+    second: Bandit_Walk_Spritesheet_6
+  - first:
+      213: 8313911855089957924
+    second: Bandit_Walk_Spritesheet_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Knight_jump_spritesheet_0
+      name: Bandit_Walk_Spritesheet_0
       rect:
         serializedVersion: 2
-        x: 141
-        y: 32
-        width: 272
-        height: 585
+        x: 49
+        y: 10
+        width: 362
+        height: 550
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b1e2df8f98025ba0800000000000000
-      internalID: -6101805063727816270
+      spriteID: 21544b36b3c847450800000000000000
+      internalID: 6085643183188100370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_jump_spritesheet_1
+      name: Bandit_Walk_Spritesheet_1
       rect:
         serializedVersion: 2
-        x: 605
-        y: 31
-        width: 313
-        height: 593
+        x: 538
+        y: 18
+        width: 355
+        height: 516
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 178d23529efe036a0800000000000000
-      internalID: -6471408879900895119
+      spriteID: cf1f571c2b60b4480800000000000000
+      internalID: -8914023672630087172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_jump_spritesheet_2
+      name: Bandit_Walk_Spritesheet_2
       rect:
         serializedVersion: 2
-        x: 1015
-        y: 47
-        width: 392
-        height: 582
+        x: 1103
+        y: 18
+        width: 281
+        height: 566
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,63 +180,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b784f9421f645e850800000000000000
-      internalID: 6405604046519879803
+      spriteID: 74c4381d38ba7e8b0800000000000000
+      internalID: -5122937468466541497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_jump_spritesheet_3
+      name: Bandit_Walk_Spritesheet_3
       rect:
         serializedVersion: 2
-        x: 1521
-        y: 67
-        width: 375
-        height: 578
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dea649769b88aed20800000000000000
-      internalID: 3308607206145157869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight_jump_spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 2042
-        y: 38
-        width: 402
-        height: 600
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8ba33e0eb71a44a40800000000000000
-      internalID: 5351579810649029304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight_jump_spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 2548
-        y: 31
-        width: 335
+        x: 1606
+        y: 19
+        width: 264
         height: 597
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -240,8 +202,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 930656d0ba33d7e40800000000000000
-      internalID: 5655733516804382777
+      spriteID: 56122f859740dd360800000000000000
+      internalID: 7195912698837737829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bandit_Walk_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 2056
+        y: 19
+        width: 356
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5caca6859700da0800000000000000
+      internalID: -5980646884492261951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bandit_Walk_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 2521
+        y: 20
+        width: 365
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672bb4044727fb120800000000000000
+      internalID: 2431788167423832694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bandit_Walk_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 3103
+        y: 18
+        width: 273
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee6b00f65a5c5030800000000000000
+      internalID: 3484759541118889707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bandit_Walk_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 3597
+        y: 16
+        width: 269
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42cbb8088c2f06370800000000000000
+      internalID: 8313911855089957924
       vertices: []
       indices: 
       edges: []
@@ -259,13 +309,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Knight_jump_spritesheet_0: -6101805063727816270
-      Knight_jump_spritesheet_1: -6471408879900895119
-      Knight_jump_spritesheet_2: 6405604046519879803
-      Knight_jump_spritesheet_3: 3308607206145157869
-      Knight_jump_spritesheet_4: 5351579810649029304
-      Knight_jump_spritesheet_5: 5655733516804382777
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
