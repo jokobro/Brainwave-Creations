@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5891164756363132197}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stone dirt ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -46,6 +46,10 @@ PrefabInstance:
     - target: {fileID: 2950181660639386011, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
       propertyPath: m_Name
       value: dirt_0 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2950181660639386011, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7925039664248771871, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
       propertyPath: m_LocalScale.x
@@ -99,7 +103,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2801123988904246148, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -117,6 +122,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5891164756363132197}
     m_Modifications:
+    - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      propertyPath: m_Size.x
+      value: 21.512531
+      objectReference: {fileID: 0}
+    - target: {fileID: 195212691273009307, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.51626635
+      objectReference: {fileID: 0}
     - target: {fileID: 664336730782279845, guid: 431f315f42adb8d4f9719ad89d971184, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -198,6 +211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dirt_0 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2950181660639386011, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7925039664248771871, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -250,7 +267,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2801123988904246148, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -271,6 +289,10 @@ PrefabInstance:
     - target: {fileID: 6642373185979428954, guid: 0449b4f664b25334d9ce512ae43df414, type: 3}
       propertyPath: m_Name
       value: stone piece_0 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642373185979428954, guid: 0449b4f664b25334d9ce512ae43df414, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9013196955384829874, guid: 0449b4f664b25334d9ce512ae43df414, type: 3}
       propertyPath: m_LocalScale.x
@@ -422,6 +444,10 @@ PrefabInstance:
     - target: {fileID: 6642373185979428954, guid: 0449b4f664b25334d9ce512ae43df414, type: 3}
       propertyPath: m_Name
       value: stone piece_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642373185979428954, guid: 0449b4f664b25334d9ce512ae43df414, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9013196955384829874, guid: 0449b4f664b25334d9ce512ae43df414, type: 3}
       propertyPath: m_LocalScale.x

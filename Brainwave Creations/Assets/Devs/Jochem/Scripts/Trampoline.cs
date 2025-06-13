@@ -7,21 +7,24 @@ public class Trampoline : MonoBehaviour
     [SerializeField] private float jumpforce;
     [SerializeField] Transform direction;
     [SerializeField] private float launchForce;
-    //refs
+    [Header("References")]
     Vector3 launchDirection = Vector3.up;
     Rigidbody2D playerRigidbody;
     PlayerController playerController;
     Animator playerAnimator;
+    Animator animator;
 
     private void Awake()
     {
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        animator= GetComponent<Animator>();
         playerAnimator = playerRigidbody.GetComponent<Animator>();
         playerController = FindAnyObjectByType<PlayerController>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        animator.SetTrigger("jump");
         switch (gameObject.name)
         {
             case "DirectionalLaunchpad":
