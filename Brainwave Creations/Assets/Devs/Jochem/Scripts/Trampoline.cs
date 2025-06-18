@@ -25,7 +25,6 @@ public class Trampoline : MonoBehaviour
     {    
         animator.SetTrigger("jump");
         playerAnimator.SetBool("IsGrounded", false);
-        playerController.isGrounded = false;
         playerController.slinging = true;
 
         switch (gameObject.name)
@@ -34,7 +33,7 @@ public class Trampoline : MonoBehaviour
                 if (collision.gameObject.CompareTag("Player"))
                 {                
                     Vector2 vectorDirection = direction.position - transform.position;
-                    if (vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled = false;
+                    if (vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled = false; playerController.isGrounded = false;
                     playerRigidbody.AddForce(jumpforce * vectorDirection.normalized, ForceMode2D.Impulse);
                 }
                 break;

@@ -100,6 +100,15 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsJumping", false);
     }
 
+    public void DisablePlayer()
+    {
+        inputMovement.x = 0;
+        rigidBody.linearVelocity = Vector2.zero;
+        rigidBody.angularVelocity = 0;
+        input.enabled = false;
+        animator.SetBool("IsGrounded", true);
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {     
         switch (collision.gameObject.tag)
@@ -107,9 +116,9 @@ public class PlayerController : MonoBehaviour
             case "Ground":
                 moveActionMap.Enable();
                 slinging = false;
-                BreakableWall.isTriggerBox = false;
-                playerController.enabled = true;
                 input.enabled = true;
+                playerController.enabled = true;
+                BreakableWall.isTriggerBox = false;
             break;
 
             case "Void":
@@ -131,7 +140,7 @@ public class PlayerController : MonoBehaviour
             break;
 
             case "Catapult collider":
-                inputMovement.x = 0;
+                DisablePlayer();
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 transform.position = catapultBehaviour.spawnPos.position;
                 catapultBehaviour.CatapultBehaviourStart();
@@ -144,8 +153,7 @@ public class PlayerController : MonoBehaviour
         switch(collision.gameObject.tag)
         {
             case "Side wall":
-                moveActionMap.Disable();
-                input.enabled = false;
+                DisablePlayer();
             break;
 
             case "Check point":
