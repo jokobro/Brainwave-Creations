@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour
         switch(collision.gameObject.tag)
         {
             case "Side wall":
+                moveActionMap.Disable();
                 input.enabled = false;
             break;
 
