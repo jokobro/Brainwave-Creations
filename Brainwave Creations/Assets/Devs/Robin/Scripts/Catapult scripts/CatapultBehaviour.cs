@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class CatapultBehaviour : MonoBehaviour
@@ -50,11 +51,11 @@ public class CatapultBehaviour : MonoBehaviour
     private IEnumerator LaunchCatapult()
     {
         BreakableWall.isTriggerBox= true;
-        playerController.enabled = false;
-        SliderUI.SetActive(true);
-      
+        playerController.DisablePlayer();
+        SliderUI.SetActive(true);    
         yield return new WaitUntil(() => playerAimInput == true);
         //setting player variables
+        playerController.enabled = false;
         playerController.slinging = true;
         // setting motor properties
         joint.useMotor = false;
