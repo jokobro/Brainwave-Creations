@@ -16,22 +16,23 @@ public class PlayerController : MonoBehaviour
     Camera mainCamera;
     Animator animator;
     InputActionMap moveActionMap;
+    PlayerInput input;
+
     //variables
     float defaultCameraSize;
     Vector2 inputMovement;
 
     [Header("Player Settings")]
+    [HideInInspector]public bool slinging = false;
+    [HideInInspector]public bool isGrounded = false;
     [SerializeField] float jumpForce;
     [SerializeField] int interactionRange;
     [SerializeField] LayerMask interactableLayer;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float enemyZoomOutAmount;
-    [SerializeField] List<GameObject> PickedUpObjects = new List<GameObject>();
-    public bool slinging = false;
-
-    protected bool isGrounded = false;
+    [SerializeField] List<GameObject> PickedUpObjects = new List<GameObject>(); 
     private float moveSpeed = 6f;
-    
+   
     private void Awake()
     {  
        //setting Camera references
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        input = GetComponent<PlayerInput>();
     }
     private void Update()
     {
@@ -76,7 +78,7 @@ public class PlayerController : MonoBehaviour
             rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, jumpForce);
         }
     }
-    private void GroundCheck()
+    public void GroundCheck()
     {
         // shoots a raycast to the ground, if it isnt touching the ground the isground bool is false
         animator.SetBool("IsGrounded", isGrounded);
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            isGrounded= false;
+            isGrounded = false; 
         }    
     }
     private IEnumerator HandleJumpAnim()
@@ -105,8 +107,9 @@ public class PlayerController : MonoBehaviour
             case "Ground":
                 moveActionMap.Enable();
                 slinging = false;
-                BreakableWall.isTriggerBox= false;
+                BreakableWall.isTriggerBox = false;
                 playerController.enabled = true;
+                input.enabled = true;
             break;
 
             case "Void":
@@ -128,9 +131,9 @@ public class PlayerController : MonoBehaviour
             break;
 
             case "Catapult collider":
+                inputMovement.x = 0;
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 transform.position = catapultBehaviour.spawnPos.position;
-                rigidBody.linearVelocityX = 0;
                 catapultBehaviour.CatapultBehaviourStart();
             break;
         }
@@ -141,7 +144,7 @@ public class PlayerController : MonoBehaviour
         switch(collision.gameObject.tag)
         {
             case "Side wall":
-                moveActionMap.Disable();
+                input.enabled = false;
             break;
 
             case "Check point":

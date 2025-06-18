@@ -13,7 +13,6 @@ public class Trampoline : MonoBehaviour
     PlayerController playerController;
     Animator playerAnimator;
     Animator animator;
-
     private void Awake()
     {
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
@@ -23,15 +22,17 @@ public class Trampoline : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {    
         animator.SetTrigger("jump");
+        playerAnimator.SetBool("IsGrounded", false);
+        playerController.isGrounded = false;
+        playerController.slinging = true;
+
         switch (gameObject.name)
         {
             case "DirectionalLaunchpad":
                 if (collision.gameObject.CompareTag("Player"))
-                {
-                    playerAnimator.SetBool("IsGrounded", false);
-                    playerController.slinging = true;
+                {                
                     Vector2 vectorDirection = direction.position - transform.position;
                     if (vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled = false;
                     playerRigidbody.AddForce(jumpforce * vectorDirection.normalized, ForceMode2D.Impulse);

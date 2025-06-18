@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class CatapultBehaviour : MonoBehaviour
@@ -12,6 +13,7 @@ public class CatapultBehaviour : MonoBehaviour
     private Rigidbody2D playerRb;
     private PlayerController playerController;
     private FollowPlayer followPlayer;
+    private PlayerInput playerInput;
     //variables
     private float defaultCameraSize;
 
@@ -41,6 +43,7 @@ public class CatapultBehaviour : MonoBehaviour
         // get component references
         playerController = FindAnyObjectByType<PlayerController>();
         joint = GetComponent<HingeJoint2D>();
+        playerInput =  playerRb.GetComponent<PlayerInput>();
         followPlayer = mainCamera.GetComponent<FollowPlayer>();
         // variable set
         motor = joint.motor;
@@ -51,6 +54,7 @@ public class CatapultBehaviour : MonoBehaviour
     {
         BreakableWall.isTriggerBox= true;
         playerController.enabled = false;
+        playerInput.enabled = false;
         SliderUI.SetActive(true);
       
         yield return new WaitUntil(() => playerAimInput == true);

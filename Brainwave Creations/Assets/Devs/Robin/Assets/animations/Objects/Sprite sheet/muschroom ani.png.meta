@@ -709,7 +709,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      muschroom ani_0: -4214822833240761271
+      muschroom ani_1: -8370778638492121722
+      muschroom ani_10: -7593803442665002595
+      muschroom ani_11: 8410300138202821018
+      muschroom ani_12: -6752515796655434266
+      muschroom ani_13: -2205791334078360182
+      muschroom ani_14: 537175226398063764
+      muschroom ani_15: -5748892916654667943
+      muschroom ani_16: 8125082021982385721
+      muschroom ani_17: -2004267986785085663
+      muschroom ani_18: -3375483208607894102
+      muschroom ani_19: -1541683267750192160
+      muschroom ani_2: 524273168691278925
+      muschroom ani_20: 8692967726374694886
+      muschroom ani_21: 420812569567574442
+      muschroom ani_22: -8560299190527388466
+      muschroom ani_23: -1052057645491724509
+      muschroom ani_3: 8150754239202514310
+      muschroom ani_4: 3449804892084127682
+      muschroom ani_5: 4357190438148543455
+      muschroom ani_6: -3364703843318337834
+      muschroom ani_7: -7129967721943297781
+      muschroom ani_8: 5844799613179618434
+      muschroom ani_9: 7949380821228325213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
