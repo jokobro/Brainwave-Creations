@@ -1,7 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/StyleSheet/MainMenuSytleSheet.uss?fileID=7433441132597879392&amp;guid=d27aaee982a1be944a1d6e3322f34c45&amp;type=3#MainMenuSytleSheet" />
+    <Style src="project://database/Assets/Devs/Robin/Assets/Sprites/StyleSheet/MainMenuSytleSheet.uss?fileID=7433441132597879392&amp;guid=d27aaee982a1be944a1d6e3322f34c45&amp;type=3#MainMenuSytleSheet" />
     <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Assets/Victory.png?fileID=-7642986446173420197&amp;guid=e6c7578cf7c5eb94eb93921d01b2fc35&amp;type=3#Victory_0&quot;);">
-        <engine:Button name="RestartButton" style="width: 300px; height: 80px; bottom: -830px; background-image: url(&quot;project://database/Assets/Assets/Buttons/restart.png?fileID=-3026058171327407114&amp;guid=f56268f3129f682448bf1b2aa80fd276&amp;type=3#restart_0&quot;); right: auto;" />
-        <engine:Button name="ExitButton" style="background-image: url(&quot;project://database/Assets/Assets/Buttons/exit.png?fileID=-4781373940957465942&amp;guid=3b74f34112efd434f8f33a403a11e8a7&amp;type=3#exit_0&quot;); width: 300px; height: 80px; bottom: -80%;" />
+        <engine:Button name="RestartButton" style="width: 300px; height: 80px; bottom: 292px; background-image: url(&quot;project://database/Assets/Assets/Buttons/restart.png?fileID=-3026058171327407114&amp;guid=f56268f3129f682448bf1b2aa80fd276&amp;type=3#restart_0&quot;); right: 800px; position: absolute; left: 800px;" />
+        <engine:Button name="ExitButton" style="background-image: url(&quot;project://database/Assets/Assets/Buttons/exit.png?fileID=-4781373940957465942&amp;guid=3b74f34112efd434f8f33a403a11e8a7&amp;type=3#exit_0&quot;); width: 300px; height: 80px; bottom: 446px; position: absolute; left: 800px; top: 550px; right: 800px;" />
     </engine:VisualElement>
 </engine:UXML>
