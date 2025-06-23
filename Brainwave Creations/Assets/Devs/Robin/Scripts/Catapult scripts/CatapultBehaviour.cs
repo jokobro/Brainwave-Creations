@@ -13,6 +13,7 @@ public class CatapultBehaviour : MonoBehaviour
     private Rigidbody2D playerRb;
     private PlayerController playerController;
     private FollowPlayer followPlayer;
+    private Animator playerAnimator;
     //variables
     private float defaultCameraSize;
 
@@ -31,8 +32,6 @@ public class CatapultBehaviour : MonoBehaviour
     [Header("zoom properties")]
     [SerializeField] float zoomOutAmount;
     [SerializeField] float waitUntilZoomIn;
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -41,6 +40,7 @@ public class CatapultBehaviour : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         // get component references
         playerController = FindAnyObjectByType<PlayerController>();
+        playerAnimator = playerRb.GetComponent<Animator>();
         joint = GetComponent<HingeJoint2D>();
         followPlayer = mainCamera.GetComponent<FollowPlayer>();
         // variable set
@@ -51,12 +51,13 @@ public class CatapultBehaviour : MonoBehaviour
     private IEnumerator LaunchCatapult()
     {
         BreakableWall.isTriggerBox= true;
-        playerController.DisablePlayer();
         SliderUI.SetActive(true);    
         yield return new WaitUntil(() => playerAimInput == true);
         //setting player variables
+        playerController.DisablePlayer();
         playerController.enabled = false;
         playerController.slinging = true;
+        StartCoroutine(playerController.HandleSlingAnim());
         // setting motor properties
         joint.useMotor = false;
         joint.useLimits = false;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -100,13 +101,21 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsJumping", false);
     }
 
+    public IEnumerator HandleSlingAnim()
+    {
+        animator.SetBool("IsSlinging", true);
+        yield return new WaitForSeconds(.4f);
+        animator.SetBool("IsSlinging", false);
+    }
+
     public void DisablePlayer()
     {
         inputMovement.x = 0;
         rigidBody.linearVelocity = Vector2.zero;
         rigidBody.angularVelocity = 0;
         input.enabled = false;
-        animator.SetBool("IsGrounded", true);
+        animator.SetBool("IsGrounded", false);
+        animator.SetFloat("IsMoving", 0);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
