@@ -284,7 +284,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      knight_sling_spritesheet_0: 7886445255030556069
+      knight_sling_spritesheet_1: 4247334548914386976
+      knight_sling_spritesheet_2: -6772532219869823137
+      knight_sling_spritesheet_3: 6548322500162553197
+      knight_sling_spritesheet_4: -983345336206119255
+      knight_sling_spritesheet_5: -1220903914141199902
+      knight_sling_spritesheet_6: -683436851886471525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
