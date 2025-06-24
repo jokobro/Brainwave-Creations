@@ -154,7 +154,6 @@ public class PlayerController : MonoBehaviour
                 transform.position = catapultBehaviour.spawnPos.position;
                 catapultBehaviour.CatapultBehaviourStart();
                 playerController.enabled = false;
-                Debug.Log("cata");
             break;
         }
     }
@@ -210,15 +209,7 @@ public class PlayerController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, forward, interactionRange, interactableLayer);
             if (hit.collider != null && PickedUpObjects.Count != 0)
             {
-                // Interaction when placing bomb on the catapult
-                if (hit.collider.gameObject.name == "Bomb catapult")
-                {
-                    catapultBehaviour = hit.collider.GetComponent<CatapultBehaviour>();
-                    catapultBehaviour.CatapultBehaviourStart();
-                    PlaceBomb(catapultBombSpawn.transform);
-
-                }
-                else if (hit.collider.gameObject.CompareTag("Breakable wall"))
+                if (hit.collider.gameObject.CompareTag("Breakable wall"))
                 {
                     StartCoroutine(PickedUpObjects[0].GetComponent<BombBehaviour>().ExplodeBomb());
                     PlaceBomb(hit.collider.transform);
