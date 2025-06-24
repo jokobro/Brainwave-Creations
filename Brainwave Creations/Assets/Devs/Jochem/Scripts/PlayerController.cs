@@ -192,11 +192,6 @@ public class PlayerController : MonoBehaviour
                 PickedUpObjects.Add(pickUp);
                 pickUp.SetActive(false);
             break;
-            case 1:
-                Debug.Log("object met nummer 2 is opgepakt");
-                PickedUpObjects.Add(pickUp);
-                pickUp.SetActive(false);
-            break;
         }
     }
 
