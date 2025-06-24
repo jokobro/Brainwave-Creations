@@ -2031,9 +2031,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2540765675042069489, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
-      propertyPath: m_UseLimits
-      value: 1
+    - target: {fileID: 2558712784484583509, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5154576573343442842, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9387,11 +9387,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1677719202483436574, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.62
+      value: -20.39
       objectReference: {fileID: 0}
     - target: {fileID: 1677719202483436574, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.24
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 1677719202483436574, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
       propertyPath: m_LocalPosition.z

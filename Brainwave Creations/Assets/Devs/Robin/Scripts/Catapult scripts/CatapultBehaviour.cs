@@ -13,9 +13,10 @@ public class CatapultBehaviour : MonoBehaviour
     private Rigidbody2D playerRb;
     private PlayerController playerController;
     private FollowPlayer followPlayer;
-    private Animator playerAnimator;
+    private Transform background;
     //variables
     private float defaultCameraSize;
+   
 
     [Header("Motor properties")]
     [HideInInspector] public bool playerAimInput;
@@ -32,15 +33,16 @@ public class CatapultBehaviour : MonoBehaviour
     [Header("zoom properties")]
     [SerializeField] float zoomOutAmount;
     [SerializeField] float waitUntilZoomIn;
+    [SerializeField] float backgroundScaleAmount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
         // tag finding references
         playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        background = GameObject.FindGameObjectWithTag("Background").transform;
         // get component references
         playerController = FindAnyObjectByType<PlayerController>();
-        playerAnimator = playerRb.GetComponent<Animator>();
         joint = GetComponent<HingeJoint2D>();
         followPlayer = mainCamera.GetComponent<FollowPlayer>();
         // variable set
@@ -55,7 +57,6 @@ public class CatapultBehaviour : MonoBehaviour
         yield return new WaitUntil(() => playerAimInput == true);
         //setting player variables
         playerController.DisablePlayer();
-        playerController.enabled = false;
         playerController.slinging = true;
         StartCoroutine(playerController.HandleSlingAnim());
         // setting motor properties
@@ -83,11 +84,16 @@ public class CatapultBehaviour : MonoBehaviour
 
     private IEnumerator CameraZoomOut()
     {
+        // setting camera properties
         mainCamera.orthographicSize = defaultCameraSize + zoomOutAmount;
         followPlayer.playerTarget = direction;
         mainCamera.farClipPlane = 1000000000000000000000f;
+        //setting background properties
+        var beforeZoomOutScale = background.localScale;
+        background.localScale = new Vector3(backgroundScaleAmount, backgroundScaleAmount, backgroundScaleAmount);
         yield return new WaitUntil(() => playerAimInput == true);
         yield return new WaitForSeconds(waitUntilZoomIn);
+        background.localScale = new Vector3(beforeZoomOutScale.x,beforeZoomOutScale.y,beforeZoomOutScale.z);
         mainCamera.orthographicSize = defaultCameraSize;
         mainCamera.farClipPlane = 1000;
     }

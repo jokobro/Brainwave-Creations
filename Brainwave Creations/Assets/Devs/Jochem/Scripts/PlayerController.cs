@@ -153,6 +153,8 @@ public class PlayerController : MonoBehaviour
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 transform.position = catapultBehaviour.spawnPos.position;
                 catapultBehaviour.CatapultBehaviourStart();
+                playerController.enabled = false;
+                Debug.Log("cata");
             break;
         }
     }
