@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SlingKnight_UI_RestartButton_0: 3248619667253998437
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

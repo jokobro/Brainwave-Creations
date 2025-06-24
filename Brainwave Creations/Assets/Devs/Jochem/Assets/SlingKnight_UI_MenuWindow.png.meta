@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SlingKnight_UI_MenuWindow_0: -5418176684382126961
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

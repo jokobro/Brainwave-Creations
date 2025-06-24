@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SlingKnight_UI_ResumeButton_0: -1044931749857467715
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
