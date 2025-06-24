@@ -25,7 +25,6 @@ public class MainMenuEvents : MonoBehaviour
     private void OnPlayGameClickEvent(ClickEvent clickEvent)
     {
         SceneManager.LoadScene(1);
-        Debug.Log("pressed the button to start game");
     }
 
     private void OnQuitGameClickEvent(ClickEvent clickEvent)
