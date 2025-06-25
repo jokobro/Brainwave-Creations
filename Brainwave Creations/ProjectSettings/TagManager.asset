@@ -15,6 +15,7 @@ TagManager:
   - Catapult collider
   - Breakable wall
   - Check point
+  - Background
   layers:
   - Default
   - TransparentFX

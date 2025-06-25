@@ -2,24 +2,19 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    [SerializeField] private int id;
-    private Collider2D myCollider;
+    private int id = 0;
+    private PlayerController playerController;
 
     private void Awake()
     {
-        myCollider = GetComponent<Collider2D>();
+        playerController = FindAnyObjectByType<PlayerController>();
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-            if (playerController != null)
-            {
-                myCollider.isTrigger = false;
-                playerController.PickupThrowableObjects(id, this.gameObject);
-                Debug.Log("ja");
-            }
+           playerController.PickupThrowableObjects(id, this.gameObject);
+           id = 1;
         }
     }
 }

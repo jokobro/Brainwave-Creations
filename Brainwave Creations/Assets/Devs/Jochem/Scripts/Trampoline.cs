@@ -12,21 +12,18 @@ public class Trampoline : MonoBehaviour
     Rigidbody2D playerRigidbody;
     PlayerController playerController;
     Animator playerAnimator;
-    Animator animator;
     private void Awake()
     {
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        animator= GetComponent<Animator>();
         playerAnimator = playerRigidbody.GetComponent<Animator>();
         playerController = FindAnyObjectByType<PlayerController>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {    
-        animator.SetTrigger("jump");
         playerAnimator.SetBool("IsGrounded", false);
         playerController.slinging = true;
-
+        StartCoroutine(playerController.HandleSlingAnim());
         switch (gameObject.name)
         {
             case "DirectionalLaunchpad":

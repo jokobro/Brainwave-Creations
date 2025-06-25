@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &329847457489637089
 Transform:
@@ -148,7 +148,7 @@ GameObject:
   m_TagString: Enemy structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4776357536379615898
 Transform:
@@ -182,7 +182,7 @@ GameObject:
   m_TagString: Breakable wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6443976345601550127
 Transform:
@@ -194,7 +194,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.82, y: 8.75, z: 0}
-  m_LocalScale: {x: 0.43151292, y: 0.7747753, z: 0.2688708}
+  m_LocalScale: {x: 0.2793494, y: 0.50156784, z: 0.17405942}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4776357536379615898}

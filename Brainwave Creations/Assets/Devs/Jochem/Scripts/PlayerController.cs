@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -100,13 +101,21 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsJumping", false);
     }
 
+    public IEnumerator HandleSlingAnim()
+    {
+        animator.SetBool("IsSlinging", true);
+        yield return new WaitForSeconds(.4f);
+        animator.SetBool("IsSlinging", false);
+    }
+
     public void DisablePlayer()
     {
         inputMovement.x = 0;
         rigidBody.linearVelocity = Vector2.zero;
         rigidBody.angularVelocity = 0;
         input.enabled = false;
-        animator.SetBool("IsGrounded", true);
+        animator.SetBool("IsGrounded", false);
+        animator.SetFloat("IsMoving", 0);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -144,6 +153,7 @@ public class PlayerController : MonoBehaviour
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 transform.position = catapultBehaviour.spawnPos.position;
                 catapultBehaviour.CatapultBehaviourStart();
+                playerController.enabled = false;
             break;
         }
     }
@@ -182,11 +192,6 @@ public class PlayerController : MonoBehaviour
                 PickedUpObjects.Add(pickUp);
                 pickUp.SetActive(false);
             break;
-            case 1:
-                Debug.Log("object met nummer 2 is opgepakt");
-                PickedUpObjects.Add(pickUp);
-                pickUp.SetActive(false);
-            break;
         }
     }
 
@@ -199,15 +204,7 @@ public class PlayerController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, forward, interactionRange, interactableLayer);
             if (hit.collider != null && PickedUpObjects.Count != 0)
             {
-                // Interaction when placing bomb on the catapult
-                if (hit.collider.gameObject.name == "Bomb catapult")
-                {
-                    catapultBehaviour = hit.collider.GetComponent<CatapultBehaviour>();
-                    catapultBehaviour.CatapultBehaviourStart();
-                    PlaceBomb(catapultBombSpawn.transform);
-
-                }
-                else if (hit.collider.gameObject.CompareTag("Breakable wall"))
+                if (hit.collider.gameObject.CompareTag("Breakable wall"))
                 {
                     StartCoroutine(PickedUpObjects[0].GetComponent<BombBehaviour>().ExplodeBomb());
                     PlaceBomb(hit.collider.transform);

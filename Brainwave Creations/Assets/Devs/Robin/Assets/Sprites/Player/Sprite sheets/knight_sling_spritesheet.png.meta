@@ -1,0 +1,299 @@
+fileFormatVersion: 2
+guid: 6c779da86b35df944a7155c6d2002046
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7886445255030556069
+    second: knight_sling_spritesheet_0
+  - first:
+      213: 4247334548914386976
+    second: knight_sling_spritesheet_1
+  - first:
+      213: -6772532219869823137
+    second: knight_sling_spritesheet_2
+  - first:
+      213: 6548322500162553197
+    second: knight_sling_spritesheet_3
+  - first:
+      213: -983345336206119255
+    second: knight_sling_spritesheet_4
+  - first:
+      213: -1220903914141199902
+    second: knight_sling_spritesheet_5
+  - first:
+      213: -683436851886471525
+    second: knight_sling_spritesheet_6
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: knight_sling_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 13
+        width: 363
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a549aedc28427d60800000000000000
+      internalID: 7886445255030556069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_sling_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 13
+        width: 384
+        height: 539
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0283946d44091fa30800000000000000
+      internalID: 4247334548914386976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_sling_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 37
+        width: 392
+        height: 582
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f75c414d12302a0800000000000000
+      internalID: -6772532219869823137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_sling_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 40
+        width: 375
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6503e09e9050ea50800000000000000
+      internalID: 6548322500162553197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_sling_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 2003
+        y: 30
+        width: 402
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aea5ef60a47a52f0800000000000000
+      internalID: -983345336206119255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_sling_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 13
+        width: 335
+        height: 597
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e1dab4db5a7e0fe0800000000000000
+      internalID: -1220903914141199902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_sling_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 3113
+        y: 14
+        width: 272
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9645e0edc1f386f0800000000000000
+      internalID: -683436851886471525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      knight_sling_spritesheet_0: 7886445255030556069
+      knight_sling_spritesheet_1: 4247334548914386976
+      knight_sling_spritesheet_2: -6772532219869823137
+      knight_sling_spritesheet_3: 6548322500162553197
+      knight_sling_spritesheet_4: -983345336206119255
+      knight_sling_spritesheet_5: -1220903914141199902
+      knight_sling_spritesheet_6: -683436851886471525
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
