@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Devs/Robin/Scene/Robin scene.unity
     guid: bfa3051e48ddd47439c785beb76aa28e
   - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: b2cc2687891a9164a9d181ea2e69b444
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 4ab18db374fe10c408c1b6112f83dcf6
   - enabled: 1
