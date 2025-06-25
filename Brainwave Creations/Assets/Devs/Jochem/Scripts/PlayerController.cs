@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -117,17 +118,20 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsGrounded", false);
         animator.SetFloat("IsMoving", 0);
     }
-
+    private void PlayerGrounded()
+    {
+        slinging = false;
+        input.enabled = true;
+        playerController.enabled = true;
+        BreakableWall.isTriggerBox = false;
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {     
         switch (collision.gameObject.tag)
         {
             case "Ground":
                 moveActionMap.Enable();
-                slinging = false;
-                input.enabled = true;
-                playerController.enabled = true;
-                BreakableWall.isTriggerBox = false;
+                PlayerGrounded();
             break;
 
             case "Void":
@@ -163,9 +167,13 @@ public class PlayerController : MonoBehaviour
         switch(collision.gameObject.tag)
         {
             case "Side wall":
-                DisablePlayer();
+                if (!isGrounded)
+                {
+                    DisablePlayer();
+                    playerController.enabled = false;
+                    Debug.Log("yes");
+                }
             break;
-
             case "Check point":
                 checkPoint = collision.gameObject.transform;
             break;

@@ -8,9 +8,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] int collateralForce;
     private bool collided;
+    PlayerController playerController;
     // Start is called before the first frame update
     private void Awake()
     {
+        playerController= FindAnyObjectByType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,10 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) collided = true;
+        if (collision.gameObject.CompareTag("Player") && playerController.slinging)
+        {
+            collided = true;
+        }
 
         if (collided && collision.gameObject.CompareTag("Enemy"))
         {
@@ -44,13 +49,13 @@ public class EnemyController : MonoBehaviour
         // rotates the enemy at the edge of a platform so it doesnt fall off and can keep patrolling
         if (collision.gameObject.CompareTag("Side wall"))
         {
-            if (transform.rotation.x == 0)
+            if (transform.rotation.y >= 0)
             {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
-            else
+            if (transform.rotation.y < 0)
             {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
     }
