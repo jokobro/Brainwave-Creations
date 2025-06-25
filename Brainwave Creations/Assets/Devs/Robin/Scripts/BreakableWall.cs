@@ -33,6 +33,9 @@ public  class BreakableWall: MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.CompareTag("Player") || collision.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 } 

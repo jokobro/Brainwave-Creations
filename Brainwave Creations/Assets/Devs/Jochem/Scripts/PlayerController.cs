@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputActionAsset inputActions;
     Transform checkPoint;
     Rigidbody2D rigidBody;
-    Transform catapultBombSpawn;
     PlayerController playerController;
     Camera mainCamera;
     Animator animator;
@@ -77,6 +76,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(HandleJumpAnim());
             rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, jumpForce);
+            rigidBody.AddForce(rigidBody.linearVelocity);
         }
     }
     public void GroundCheck()
