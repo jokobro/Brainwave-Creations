@@ -54,6 +54,7 @@ public class CatapultBehaviour : MonoBehaviour
     {
         BreakableWall.isTriggerBox= true;
         SliderUI.SetActive(true);    
+        joint.useMotor = false;
         yield return new WaitUntil(() => playerAimInput == true);
         //setting player variables
         playerController.DisablePlayer();
