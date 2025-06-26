@@ -90,11 +90,10 @@ public class CatapultBehaviour : MonoBehaviour
         followPlayer.playerTarget = direction;
         mainCamera.farClipPlane = 1000000000000000000000f;
         //setting background properties
-        var beforeZoomOutScale = background.localScale;
         background.localScale = new Vector3(backgroundScaleAmount, backgroundScaleAmount, backgroundScaleAmount);
         yield return new WaitUntil(() => playerAimInput == true);
         yield return new WaitForSeconds(waitUntilZoomIn);
-        background.localScale = new Vector3(beforeZoomOutScale.x,beforeZoomOutScale.y,beforeZoomOutScale.z);
+        background.localScale = new Vector3(1,1,1);
         mainCamera.orthographicSize = defaultCameraSize;
         mainCamera.farClipPlane = 1000;
     }

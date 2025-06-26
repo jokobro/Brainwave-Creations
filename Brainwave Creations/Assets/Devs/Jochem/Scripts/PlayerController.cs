@@ -142,9 +142,6 @@ public class PlayerController : MonoBehaviour
                 if (slinging)
                 {
                     StartCoroutine(EnemyCollisionZoomOut());
-                    Vector2 direction = collision.transform.position - transform.position;
-                    collision.rigidbody.AddForce(rigidBody.linearVelocityX * direction.normalized, ForceMode2D.Impulse);
-                    rigidBody.linearVelocityX = 0;
                 }
                 else
                 {

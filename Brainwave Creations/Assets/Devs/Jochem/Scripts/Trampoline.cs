@@ -35,7 +35,7 @@ public class Trampoline : MonoBehaviour
                 if (collision.gameObject.CompareTag("Player"))
                 {   
                     Vector2 vectorDirection = direction.position - transform.position;
-                    if (vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled = false; playerController.isGrounded = false;
+                    if (vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled = false; playerController.isGrounded = false; BreakableWall.isTriggerBox = true;
                     playerRigidbody.AddForce(jumpforce * vectorDirection.normalized, ForceMode2D.Impulse);
                 }
                 break;

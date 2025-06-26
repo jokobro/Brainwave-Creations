@@ -3,15 +3,15 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public  class BreakableWall: MonoBehaviour
+public class BreakableWall : MonoBehaviour
 {
-    BoxCollider2D myCollider;
+    BoxCollider2D myColliders;
     public static bool isTriggerBox = false;
     private PlayerController playerController;
 
     private void Awake()
     {
-        myCollider= GetComponent<BoxCollider2D>();
+        myColliders = GetComponent<BoxCollider2D>();
         playerController = FindAnyObjectByType<PlayerController>();
     }
     private void Update()
@@ -23,21 +23,27 @@ public  class BreakableWall: MonoBehaviour
     {
         switch (isTriggerBox)
         {
-            case true:
-                myCollider.isTrigger = isTriggerBox;
-            break;
-            case false:
-                myCollider.isTrigger = isTriggerBox;
-            break;
+          case true:
+              myColliders.isTrigger= true;
+          break;
+          case false:
+              myColliders.isTrigger= false;
+          break;
         }
-       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(playerController.slinging);
         if (collision.CompareTag("Player") && playerController.slinging || collision.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
     }
-} 
+
+}
+   
+
+
+
+
