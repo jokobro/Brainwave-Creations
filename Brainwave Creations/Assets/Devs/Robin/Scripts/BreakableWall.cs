@@ -7,10 +7,12 @@ public  class BreakableWall: MonoBehaviour
 {
     BoxCollider2D myCollider;
     public static bool isTriggerBox = false;
+    private PlayerController playerController;
 
     private void Awake()
     {
         myCollider= GetComponent<BoxCollider2D>();
+        playerController = FindAnyObjectByType<PlayerController>();
     }
     private void Update()
     {
@@ -33,7 +35,7 @@ public  class BreakableWall: MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Player") && playerController.slinging || collision.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }

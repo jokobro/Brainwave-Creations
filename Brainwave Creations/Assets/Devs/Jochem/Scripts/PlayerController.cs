@@ -171,7 +171,6 @@ public class PlayerController : MonoBehaviour
                 {
                     DisablePlayer();
                     playerController.enabled = false;
-                    Debug.Log("yes");
                 }
             break;
             case "Check point":
@@ -183,7 +182,7 @@ public class PlayerController : MonoBehaviour
     {
         if (checkPoint == null)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("GameOver");
             gameObject.SetActive(false);
         }
         else
@@ -196,7 +195,6 @@ public class PlayerController : MonoBehaviour
         switch (id)
         {
             case 0:
-                Debug.Log("object met nummer 1 is opgepakt");
                 PickedUpObjects.Add(pickUp);
                 pickUp.SetActive(false);
             break;
