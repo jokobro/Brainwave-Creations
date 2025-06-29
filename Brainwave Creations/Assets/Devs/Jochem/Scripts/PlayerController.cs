@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [HideInInspector] public CatapultBehaviour catapultBehaviour;
     [SerializeField] InputActionAsset inputActions;
+    [SerializeField] LayerMask interactableLayer;
+    [SerializeField] LayerMask groundLayer;
     Transform checkPoint;
     Rigidbody2D rigidBody;
     PlayerController playerController;
@@ -27,9 +29,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]public bool slinging = false;
     [HideInInspector]public bool isGrounded = false;
     [SerializeField] float jumpForce;
-    [SerializeField] int interactionRange;
-    [SerializeField] LayerMask interactableLayer;
-    [SerializeField] LayerMask groundLayer;
+    [SerializeField] int interactionRange; 
     [SerializeField] float enemyZoomOutAmount;
     [SerializeField] List<GameObject> PickedUpObjects = new List<GameObject>(); 
     private float moveSpeed = 6f;
@@ -157,6 +157,7 @@ public class PlayerController : MonoBehaviour
                 playerController.enabled = false;
             break;
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -167,7 +168,7 @@ public class PlayerController : MonoBehaviour
                 if (!isGrounded)
                 {
                     DisablePlayer();
-                    playerController.enabled = false;
+                    PlayerGrounded();
                 }
             break;
             case "Check point":
