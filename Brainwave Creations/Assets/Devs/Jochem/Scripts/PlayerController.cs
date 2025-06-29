@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour
                 DisablePlayer();
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 transform.position = catapultBehaviour.spawnPos.position;
+                catapultBehaviour.playerAimInput = false;
                 catapultBehaviour.CatapultBehaviourStart();
                 playerController.enabled = false;
             break;
