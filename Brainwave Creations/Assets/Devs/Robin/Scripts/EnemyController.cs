@@ -9,10 +9,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] int collateralForce;
     private bool collided;
     PlayerController playerController;
+    Rigidbody2D rb;
     // Start is called before the first frame update
     private void Awake()
     {
         playerController= FindAnyObjectByType<PlayerController>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,9 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && playerController.slinging)
         {
             collided = true;
+            Vector2 direction = transform.position-collision.transform.position;
+            rb.AddForce(collision.rigidbody.linearVelocityX * direction.normalized, ForceMode2D.Impulse);
+            collision.rigidbody.linearVelocityX = 0;
         }
 
         if (collided && collision.gameObject.CompareTag("Enemy"))

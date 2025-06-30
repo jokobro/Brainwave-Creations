@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [HideInInspector] public CatapultBehaviour catapultBehaviour;
     [SerializeField] InputActionAsset inputActions;
+    [SerializeField] LayerMask interactableLayer;
+    [SerializeField] LayerMask groundLayer;
     Transform checkPoint;
     Rigidbody2D rigidBody;
     PlayerController playerController;
@@ -27,9 +29,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]public bool slinging = false;
     [HideInInspector]public bool isGrounded = false;
     [SerializeField] float jumpForce;
-    [SerializeField] int interactionRange;
-    [SerializeField] LayerMask interactableLayer;
-    [SerializeField] LayerMask groundLayer;
+    [SerializeField] int interactionRange; 
     [SerializeField] float enemyZoomOutAmount;
     [SerializeField] List<GameObject> PickedUpObjects = new List<GameObject>(); 
     private float moveSpeed = 6f;
@@ -142,9 +142,6 @@ public class PlayerController : MonoBehaviour
                 if (slinging)
                 {
                     StartCoroutine(EnemyCollisionZoomOut());
-                    Vector2 direction = collision.transform.position - transform.position;
-                    collision.rigidbody.AddForce(rigidBody.linearVelocityX * direction.normalized, ForceMode2D.Impulse);
-                    rigidBody.linearVelocityX = 0;
                 }
                 else
                 {
@@ -156,10 +153,12 @@ public class PlayerController : MonoBehaviour
                 DisablePlayer();
                 catapultBehaviour = collision.gameObject.GetComponentInParent<CatapultBehaviour>();
                 transform.position = catapultBehaviour.spawnPos.position;
+                catapultBehaviour.playerAimInput = false;
                 catapultBehaviour.CatapultBehaviourStart();
                 playerController.enabled = false;
             break;
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -170,8 +169,7 @@ public class PlayerController : MonoBehaviour
                 if (!isGrounded)
                 {
                     DisablePlayer();
-                    playerController.enabled = false;
-                    Debug.Log("yes");
+                    PlayerGrounded();
                 }
             break;
             case "Check point":
@@ -183,7 +181,7 @@ public class PlayerController : MonoBehaviour
     {
         if (checkPoint == null)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("GameOver");
             gameObject.SetActive(false);
         }
         else
@@ -196,7 +194,6 @@ public class PlayerController : MonoBehaviour
         switch (id)
         {
             case 0:
-                Debug.Log("object met nummer 1 is opgepakt");
                 PickedUpObjects.Add(pickUp);
                 pickUp.SetActive(false);
             break;

@@ -54,6 +54,7 @@ public class CatapultBehaviour : MonoBehaviour
     {
         BreakableWall.isTriggerBox= true;
         SliderUI.SetActive(true);    
+        joint.useMotor = false;
         yield return new WaitUntil(() => playerAimInput == true);
         //setting player variables
         playerController.DisablePlayer();
@@ -78,7 +79,6 @@ public class CatapultBehaviour : MonoBehaviour
         yield return wait;
         followPlayer.playerTarget = playerRb.transform;
         joint.useLimits = true;
-        playerAimInput = false;
         SliderUI.SetActive(false);
     }
 
@@ -89,13 +89,15 @@ public class CatapultBehaviour : MonoBehaviour
         followPlayer.playerTarget = direction;
         mainCamera.farClipPlane = 1000000000000000000000f;
         //setting background properties
-        var beforeZoomOutScale = background.localScale;
         background.localScale = new Vector3(backgroundScaleAmount, backgroundScaleAmount, backgroundScaleAmount);
         yield return new WaitUntil(() => playerAimInput == true);
         yield return new WaitForSeconds(waitUntilZoomIn);
-        background.localScale = new Vector3(beforeZoomOutScale.x,beforeZoomOutScale.y,beforeZoomOutScale.z);
-        mainCamera.orthographicSize = defaultCameraSize;
-        mainCamera.farClipPlane = 1000;
+        if (playerAimInput)
+        {
+            background.localScale = new Vector3(1, 1, 1);
+            mainCamera.orthographicSize = defaultCameraSize;
+            mainCamera.farClipPlane = 1000;
+        }
     }
 
     public void CatapultBehaviourStart()

@@ -26,7 +26,6 @@ public class BombBehaviour : MonoBehaviour
             }
             else if (hitCollider[i].gameObject.CompareTag("Breakable wall"))
             {
-                Debug.Log("boom");
                 hitCollider[i].gameObject.SetActive(false);
             }        
         }    

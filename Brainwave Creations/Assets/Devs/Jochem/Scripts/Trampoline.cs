@@ -9,7 +9,6 @@ public class Trampoline : MonoBehaviour
     [SerializeField] Transform direction;
     [SerializeField] private float launchForce;
     [Header("References")]
-    Vector3 launchDirection = Vector3.up;
     Rigidbody2D playerRigidbody;
     PlayerController playerController;
     PlayerInput input;
@@ -23,7 +22,10 @@ public class Trampoline : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {    
+    {
+        //direction
+        Vector2 vectorDirection = direction.position - transform.position;
+        //player settings
         playerAnimator.SetBool("IsGrounded", false);
         playerController.slinging = true;
         playerController.enabled = true;
@@ -34,8 +36,7 @@ public class Trampoline : MonoBehaviour
             case "DirectionalLaunchpad":
                 if (collision.gameObject.CompareTag("Player"))
                 {   
-                    Vector2 vectorDirection = direction.position - transform.position;
-                    if (vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled = false; playerController.isGrounded = false;
+                    if (vectorDirection.x != 0 || vectorDirection.y < 0) playerController.enabled = false; playerController.isGrounded = false; BreakableWall.isTriggerBox = true;
                     playerRigidbody.AddForce(jumpforce * vectorDirection.normalized, ForceMode2D.Impulse);
                 }
                 break;
@@ -44,7 +45,7 @@ public class Trampoline : MonoBehaviour
                 {
                     float impactSpeed = MathF.Abs(collision.relativeVelocity.y);
                     float dynamicForce = impactSpeed * launchForce;
-                    playerRigidbody.AddForce(dynamicForce * launchDirection, ForceMode2D.Impulse);
+                    playerRigidbody.AddForce(dynamicForce * vectorDirection, ForceMode2D.Impulse);
                 }
                 break;
         }
