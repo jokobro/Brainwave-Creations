@@ -16,8 +16,6 @@ public class CatapultBehaviour : MonoBehaviour
     private Transform background;
     //variables
     private float defaultCameraSize;
-   
-
     [Header("Motor properties")]
     [HideInInspector] public bool playerAimInput;
     [HideInInspector] public float slingPower;
@@ -84,6 +82,7 @@ public class CatapultBehaviour : MonoBehaviour
 
     private IEnumerator CameraZoomOut()
     {
+        var timer = false;
         // setting camera properties
         mainCamera.orthographicSize = defaultCameraSize + zoomOutAmount;
         followPlayer.playerTarget = direction;
@@ -92,11 +91,12 @@ public class CatapultBehaviour : MonoBehaviour
         background.localScale = new Vector3(backgroundScaleAmount, backgroundScaleAmount, backgroundScaleAmount);
         yield return new WaitUntil(() => playerAimInput == true);
         yield return new WaitForSeconds(waitUntilZoomIn);
-        if (playerAimInput)
+        timer = true;
+        if (playerAimInput && timer)
         {
-            background.localScale = new Vector3(1, 1, 1);
-            mainCamera.orthographicSize = defaultCameraSize;
-            mainCamera.farClipPlane = 1000;
+           background.localScale = new Vector3(1, 1, 1);
+           mainCamera.orthographicSize = defaultCameraSize;
+           mainCamera.farClipPlane = 1000;
         }
     }
 
