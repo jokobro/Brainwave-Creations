@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -10,10 +8,12 @@ public class EnemyController : MonoBehaviour
     private bool collided;
     PlayerController playerController;
     Rigidbody2D rb;
+    private Animator smokeEffect;
     // Start is called before the first frame update
     private void Awake()
     {
-        playerController= FindAnyObjectByType<PlayerController>();
+        smokeEffect = GetComponent<Animator>();
+        playerController = FindAnyObjectByType<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -32,21 +32,23 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && playerController.slinging)
         {
+            smokeEffect.SetTrigger("Collision");
             collided = true;
-            Vector2 direction = transform.position-collision.transform.position;
+            Vector2 direction = transform.position - collision.transform.position;
             rb.AddForce(collision.rigidbody.linearVelocityX * direction.normalized, ForceMode2D.Impulse);
             collision.rigidbody.linearVelocityX = 0;
         }
 
         if (collided && collision.gameObject.CompareTag("Enemy"))
         {
-           Vector2 direction = collision.transform.position - transform.position;
-           collision.rigidbody.AddForce(collateralForce * direction.normalized, ForceMode2D.Impulse);
-           Destroy(gameObject);
+            smokeEffect.SetTrigger("Collision");
+            Vector2 direction = collision.transform.position - transform.position;
+            collision.rigidbody.AddForce(collateralForce * direction.normalized, ForceMode2D.Impulse);
+            Destroy(gameObject);
         }
         else if (collision.gameObject.layer == 18)
         {
-           Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

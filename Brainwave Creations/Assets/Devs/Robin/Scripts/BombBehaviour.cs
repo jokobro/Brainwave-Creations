@@ -12,12 +12,17 @@ public class BombBehaviour : MonoBehaviour
     public float explosionTime;
     [SerializeField] float explosionRadius;
     [SerializeField] LayerMask hitLayer;
+    private Animator explosionEffect;
+    private void Awake()
+    {
+        explosionEffect = GetComponent<Animator>();
+    }
 
     public IEnumerator ExplodeBomb()
     {
         yield return new WaitForSeconds(explosionTime);
         Collider2D[] hitCollider = Physics2D.OverlapCircleAll(transform.position, explosionRadius, hitLayer);
-
+        explosionEffect.SetTrigger("Explosion_Trigger");
         for(int i = 0; i < hitCollider.Length; i++)
         {
             if (hitCollider[i].gameObject.CompareTag("Player"))
