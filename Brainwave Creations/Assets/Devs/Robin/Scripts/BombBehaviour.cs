@@ -4,10 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class BombBehaviour : MonoBehaviour
-{
-    [Header("Catapult variables")]
-    [SerializeField] float explosionForce;
-
+{ 
     [Header("Exploding bomb variables")]
     public float explosionTime;
     [SerializeField] float explosionRadius;
@@ -22,7 +19,8 @@ public class BombBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(explosionTime);
         Collider2D[] hitCollider = Physics2D.OverlapCircleAll(transform.position, explosionRadius, hitLayer);
-        explosionEffect.SetTrigger("Explosion_Trigger");
+        explosionEffect.SetBool("boom", true);
+        Debug.Log(explosionEffect.GetBool("boom"));
         for(int i = 0; i < hitCollider.Length; i++)
         {
             if (hitCollider[i].gameObject.CompareTag("Player"))
@@ -34,6 +32,8 @@ public class BombBehaviour : MonoBehaviour
                 hitCollider[i].gameObject.SetActive(false);
             }        
         }    
+        //for the animation to be done playing
+        yield return new WaitForSeconds(.6f);
         gameObject.SetActive(false);     
     }
 }
