@@ -30,9 +30,9 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+       
         if (collision.gameObject.CompareTag("Player") && playerController.slinging)
         {
-            smokeEffect.SetTrigger("Collision");
             collided = true;
             Vector2 direction = transform.position - collision.transform.position;
             rb.AddForce(collision.rigidbody.linearVelocityX * direction.normalized, ForceMode2D.Impulse);
@@ -41,14 +41,15 @@ public class EnemyController : MonoBehaviour
 
         if (collided && collision.gameObject.CompareTag("Enemy"))
         {
-            smokeEffect.SetTrigger("Collision");
+            smokeEffect.SetTrigger("smoke");
             Vector2 direction = collision.transform.position - transform.position;
             collision.rigidbody.AddForce(collateralForce * direction.normalized, ForceMode2D.Impulse);
             Destroy(gameObject);
         }
         else if (collision.gameObject.layer == 18)
         {
-            Destroy(gameObject);
+            smokeEffect.SetTrigger("smoke");
+            Destroy(gameObject,.3f);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

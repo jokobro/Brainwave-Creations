@@ -10121,6 +10121,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8409301177119298777, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
+      propertyPath: enemyZoomOutAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409301177119298777, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
       propertyPath: enviornmentLayer.m_Bits
       value: 262144
       objectReference: {fileID: 0}

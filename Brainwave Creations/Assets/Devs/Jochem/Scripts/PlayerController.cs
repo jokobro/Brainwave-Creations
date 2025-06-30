@@ -169,7 +169,8 @@ public class PlayerController : MonoBehaviour
                 if (!isGrounded)
                 {
                     DisablePlayer();
-                    PlayerGrounded();
+                    playerController.enabled = false;
+                    Debug.Log("side");
                 }
             break;
             case "Check point":
@@ -187,6 +188,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             gameObject.transform.position = checkPoint.transform.position;
+            DisablePlayer();
         }
     }
     public void PickupThrowableObjects(int id, GameObject pickUp)
