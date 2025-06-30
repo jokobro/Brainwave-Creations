@@ -18,9 +18,11 @@ public class BombBehaviour : MonoBehaviour
     public IEnumerator ExplodeBomb()
     {
         yield return new WaitForSeconds(explosionTime);
-        Collider2D[] hitCollider = Physics2D.OverlapCircleAll(transform.position, explosionRadius, hitLayer);
+        //for the explosion animation
         explosionEffect.SetBool("boom", true);
-        Debug.Log(explosionEffect.GetBool("boom"));
+        gameObject.transform.localScale = new Vector3(1,1,1);
+        //checks if the overlap circle hits the player or the wall and destroys it
+        Collider2D[] hitCollider = Physics2D.OverlapCircleAll(transform.position, explosionRadius, hitLayer);
         for(int i = 0; i < hitCollider.Length; i++)
         {
             if (hitCollider[i].gameObject.CompareTag("Player"))
