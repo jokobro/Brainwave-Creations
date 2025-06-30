@@ -106,16 +106,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catapultBehaviour: {fileID: 0}
   inputActions: {fileID: -944628639613478452, guid: a42071302b1def74fad915c79651959b, type: 3}
-  slinging: 0
-  isGrounded: 0
-  jumpForce: 5
-  interactionRange: 2
   interactableLayer:
     serializedVersion: 2
     m_Bits: 131072
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  slinging: 0
+  isGrounded: 0
+  jumpForce: 5
+  interactionRange: 2
   enemyZoomOutAmount: 2
   PickedUpObjects: []
 --- !u!114 &1007378329983656941
@@ -191,6 +191,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f5f7a01e-8aaa-487a-abaf-e7108bf66777
     m_ActionName: 'Game/Interaction[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ButtonBehaviourTutorial, Assembly-CSharp
+        m_MethodName: Tutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 671851b4-b3c8-4de9-81a1-9b0d9681bf48
+    m_ActionName: 'Game/Tutorial open[/Keyboard/tab]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Game

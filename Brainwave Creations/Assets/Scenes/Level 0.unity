@@ -9324,34 +9324,6 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 2777267337388767522}
-    - target: {fileID: 5882711375204905335, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5882711375204905335, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5882711375204905335, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 913392724}
-    - target: {fileID: 5882711375204905335, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5882711375204905335, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitTutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 5882711375204905335, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonBehaviourTutorial, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5882711375204905335, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 9085301546601453143, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3
@@ -10265,73 +10237,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
-      value: 671851b4-b3c8-4de9-81a1-9b0d9681bf48
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
-      value: 'Game/Tutorial open[/Keyboard/tab]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 913392724}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 913392724}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OpenTutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Tutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: ButtonBehaviourTutorial, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonBehaviourTutorial, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1677719202483436574, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.31
