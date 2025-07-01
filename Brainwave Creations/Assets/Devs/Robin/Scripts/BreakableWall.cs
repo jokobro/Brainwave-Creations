@@ -34,7 +34,6 @@ public class BreakableWall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(playerController.slinging);
         if (collision.CompareTag("Player") && playerController.slinging || collision.CompareTag("Enemy"))
         {
             Destroy(gameObject);

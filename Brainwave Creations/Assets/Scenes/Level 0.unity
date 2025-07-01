@@ -3952,6 +3952,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7925039664248771871, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
   m_PrefabInstance: {fileID: 344137549}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &778114111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3788231381962871134, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
+  m_PrefabInstance: {fileID: 2001707919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &778417464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9328,6 +9333,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 596306771903958235, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1722932448402249674, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -9336,6 +9345,10 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 2777267337388767522}
+    - target: {fileID: 3788231381962871134, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
+      propertyPath: m_TagString
+      value: GameOver
+      objectReference: {fileID: 0}
     - target: {fileID: 9085301546601453143, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3
@@ -10304,6 +10317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8409301177119298777, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 778114111}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

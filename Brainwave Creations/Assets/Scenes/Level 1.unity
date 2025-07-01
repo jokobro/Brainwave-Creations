@@ -1077,6 +1077,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
+--- !u!1 &265645747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3788231381962871134, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
+  m_PrefabInstance: {fileID: 1895264036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &279250490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1431,6 +1436,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7925039664248771871, guid: 6636d94077ee09d4aa9a36617b8d7a41, type: 3}
   m_PrefabInstance: {fileID: 717426540}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &330962687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2670705265825268519, guid: 31b3daa8af2be2941874bf1cc9409f0b, type: 3}
+  m_PrefabInstance: {fileID: 1895264036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6b355d2ed8c6bf4fbd9c4209b617c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &357001158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7644157781708582549, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
@@ -3865,15 +3881,15 @@ PrefabInstance:
       objectReference: {fileID: 980916443}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: motorForce
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: motorSpeed
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: maxSlingPower
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5193875314482275560, guid: 69b44d890096f7c4ca552c30cf80caa0, type: 3}
       propertyPath: zoomOutAmount
@@ -5411,7 +5427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4272655669752677977, guid: 4df0ba87c13a30345a60db4e58617676, type: 3}
       propertyPath: launchForce
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4273287505189699050, guid: 4df0ba87c13a30345a60db4e58617676, type: 3}
       propertyPath: m_Name
@@ -6413,13 +6429,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 330962687}
+    - target: {fileID: 1007378329983656941, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Tutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 1677719202483436574, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.57
+      value: -7.47
       objectReference: {fileID: 0}
     - target: {fileID: 1677719202483436574, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.98
+      value: 3.73
       objectReference: {fileID: 0}
     - target: {fileID: 1677719202483436574, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6457,6 +6481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8409301177119298777, guid: 7dcdce1837536ad4c90aa8afceb1fdbb, type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 265645747}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
