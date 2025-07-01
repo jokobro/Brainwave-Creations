@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputActionAsset inputActions;
     [SerializeField] LayerMask interactableLayer;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] GameObject gameOverScreen;
     Transform checkPoint;
     Rigidbody2D rigidBody;
     PlayerController playerController;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     InputActionMap moveActionMap;
     PlayerInput input;
+   
 
     //variables
     float defaultCameraSize;
@@ -169,7 +171,7 @@ public class PlayerController : MonoBehaviour
                 if (!isGrounded)
                 {
                     DisablePlayer();
-                    PlayerGrounded();
+                    playerController.enabled = false;
                 }
             break;
             case "Check point":
@@ -181,12 +183,13 @@ public class PlayerController : MonoBehaviour
     {
         if (checkPoint == null)
         {
-            SceneManager.LoadScene("GameOver");
+            gameOverScreen.SetActive(true);
             gameObject.SetActive(false);
         }
         else
         {
             gameObject.transform.position = checkPoint.transform.position;
+            DisablePlayer();
         }
     }
     public void PickupThrowableObjects(int id, GameObject pickUp)
@@ -228,7 +231,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator EnemyCollisionZoomOut()
     {
         mainCamera.orthographicSize = defaultCameraSize + enemyZoomOutAmount;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         mainCamera.orthographicSize = defaultCameraSize;
     }
 }

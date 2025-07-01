@@ -25,12 +25,12 @@ public class VictoryRestart : MonoBehaviour
 
     private void OnrestartClickEvent(ClickEvent clickEvent)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnExitClickEvent(ClickEvent clickEvent) 
     {
-        SceneManager.LoadScene(0);    
+        SceneManager.LoadScene("main menu");    
     }
 
 }
