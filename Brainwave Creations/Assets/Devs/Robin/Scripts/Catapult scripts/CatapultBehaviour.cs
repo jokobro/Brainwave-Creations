@@ -50,16 +50,15 @@ public class CatapultBehaviour : MonoBehaviour
     // turns the motor of the hingeJoint off and applies all the multiplier variables, and then turns it on to apply all of it at once.
     private IEnumerator LaunchCatapult()
     {
-        BreakableWall.isTriggerBox= true;
         SliderUI.SetActive(true);    
         joint.useMotor = false;
+        BreakableWall.isTriggerBox = true;
         yield return new WaitUntil(() => playerAimInput == true);
         //setting player variables
         playerController.DisablePlayer();
         playerController.slinging = true;
         StartCoroutine(playerController.HandleSlingAnim());
         // setting motor properties
-        joint.useMotor = false;
         joint.useLimits = false;
         motor.motorSpeed = motorSpeed;
         motor.maxMotorTorque = motorForce;
@@ -79,7 +78,6 @@ public class CatapultBehaviour : MonoBehaviour
         joint.useLimits = true;
         SliderUI.SetActive(false);
     }
-
     private IEnumerator CameraZoomOut()
     {
         var timer = false;
