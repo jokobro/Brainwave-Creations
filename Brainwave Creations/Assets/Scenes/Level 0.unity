@@ -2871,7 +2871,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1103531075
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 250589031369837917, guid: 674de701f38f97d4186361f00736fdcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2892,7 +2892,7 @@ Transform:
   m_GameObject: {fileID: 519757471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.45, y: -6.23, z: 0}
+  m_LocalPosition: {x: -6.45, y: -6.38, z: 0}
   m_LocalScale: {x: 0.7574418, y: 0.2854, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4399,7 +4399,7 @@ Transform:
   m_GameObject: {fileID: 773298492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.3, y: 24.493, z: 0}
+  m_LocalPosition: {x: 30.3, y: 24.4, z: 0}
   m_LocalScale: {x: 2.1203592, y: 2.901689, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7276,7 +7276,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1103531075
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 250589031369837917, guid: 674de701f38f97d4186361f00736fdcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7297,7 +7297,7 @@ Transform:
   m_GameObject: {fileID: 1310222791}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.2649, y: -6.35, z: 0}
+  m_LocalPosition: {x: -16.2649, y: -6.5, z: 0}
   m_LocalScale: {x: 0.4799042, y: 0.2147, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7501,7 +7501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3927701446764947501, guid: 734e99a6f3e8c9f4ba8b39c57f6e93f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.2
+      value: -10.59
       objectReference: {fileID: 0}
     - target: {fileID: 3927701446764947501, guid: 734e99a6f3e8c9f4ba8b39c57f6e93f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11827,7 +11827,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1103531075
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 250589031369837917, guid: 674de701f38f97d4186361f00736fdcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -11848,7 +11848,7 @@ Transform:
   m_GameObject: {fileID: 2117906629}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.1058, y: -6.25, z: 0}
+  m_LocalPosition: {x: -11.1058, y: -6.4, z: 0}
   m_LocalScale: {x: 1.0114266, y: 0.2449752, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
