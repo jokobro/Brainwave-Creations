@@ -5347,6 +5347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DirectionalLaunchpad
       objectReference: {fileID: 0}
+    - target: {fileID: 6214780353632656062, guid: 50eae984c5e0e294eb16d3f333cce1bd, type: 3}
+      propertyPath: jumpforce
+      value: 13.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7850,7 +7854,7 @@ Transform:
   m_GameObject: {fileID: 1877866835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.21, y: 2.05, z: 0}
+  m_LocalPosition: {x: 34.64, y: 2.05, z: 0}
   m_LocalScale: {x: 0.3143, y: 0.2932, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8658,7 +8662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4906375036058842927, guid: eb47b32170d966b4b9826205e27aa19b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.62
+      value: -7.58
       objectReference: {fileID: 0}
     - target: {fileID: 4906375036058842927, guid: eb47b32170d966b4b9826205e27aa19b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8882,7 +8886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1404164067462917162, guid: 50eae984c5e0e294eb16d3f333cce1bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.1100006
+      value: 6.78
       objectReference: {fileID: 0}
     - target: {fileID: 1404164067462917162, guid: 50eae984c5e0e294eb16d3f333cce1bd, type: 3}
       propertyPath: m_LocalPosition.y
