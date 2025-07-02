@@ -3135,9 +3135,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -468808349
+  m_SortingLayer: -2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 8627680554944942435, guid: 0167d20e5cb68604c90b9f51f6920baf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3615,6 +3615,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 323380707}
     m_Modifications:
+    - target: {fileID: 5214559438855050632, guid: c3027a296257a2744a23771ad005321f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7041308541470792339, guid: c3027a296257a2744a23771ad005321f, type: 3}
       propertyPath: m_Size.x
       value: 2.7840924
@@ -8503,9 +8507,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -468808349
+  m_SortingLayer: -2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 8627680554944942435, guid: 0167d20e5cb68604c90b9f51f6920baf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9995,6 +9999,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 323380707}
     m_Modifications:
+    - target: {fileID: 5214559438855050632, guid: c3027a296257a2744a23771ad005321f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7041308541470792339, guid: c3027a296257a2744a23771ad005321f, type: 3}
       propertyPath: m_Size.y
       value: 7.871133
@@ -14258,6 +14266,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 323380707}
     m_Modifications:
+    - target: {fileID: 5214559438855050632, guid: c3027a296257a2744a23771ad005321f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7041308541470792339, guid: c3027a296257a2744a23771ad005321f, type: 3}
       propertyPath: m_Size.y
       value: 15.471429
