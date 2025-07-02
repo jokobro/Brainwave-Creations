@@ -5,7 +5,6 @@ public class EnemyController : MonoBehaviour
     [Header("Enemy properties")]
     [SerializeField] float speed;
     [SerializeField] int collateralForce;
-    [SerializeField] LayerMask enviornmentLayer;
     private bool collided;
     PlayerController playerController;
     Rigidbody2D rb;
@@ -31,22 +30,22 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       // checks if the enemyy is colliding with the player and if the player is slinging, then makes it be able to collider
+        // checks if the enemy is colliding with the player and if the player is slinging, then shoots the enemy away in the direction it got hit from.
+        Vector2 direction = transform.position - collision.transform.position;
         if (collision.gameObject.CompareTag("Player") && playerController.slinging)
         {
             collided = true;
-            Vector2 direction = transform.position - collision.transform.position;
             rb.AddForce(collision.rigidbody.linearVelocityX * direction.normalized, ForceMode2D.Impulse);
             collision.rigidbody.linearVelocityX = 0;
         }
-
+        // if the enemy got shot away from the player and hits another enemy, then that enemy also gets slinged away in the direction it got hit from.
+        // Destroys the original enemy on impact,and destroys the collateral enemy when it hits an object with the enviornment layer.
         if (collided && collision.gameObject.CompareTag("Enemy"))
         {
-            Vector2 collisionDirection = collision.transform.position - transform.position;
-            collision.rigidbody.AddForce(collateralForce * collisionDirection.normalized, ForceMode2D.Impulse);
+            collision.rigidbody.AddForce(collateralForce *-direction.normalized, ForceMode2D.Impulse);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.layer == enviornmentLayer)
+        else if (collision.gameObject.layer == 18)
         {
             smokeEffect.SetTrigger("smoke");
             Destroy(gameObject,.3f);
