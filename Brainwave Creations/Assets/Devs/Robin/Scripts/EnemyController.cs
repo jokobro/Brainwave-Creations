@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
     [Header("Enemy properties")]
     [SerializeField] float speed;
     [SerializeField] int collateralForce;
+    [SerializeField] LayerMask enviornmentLayer;
     private bool collided;
     PlayerController playerController;
     Rigidbody2D rb;
@@ -30,7 +31,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
+       // checks if the enemyy is colliding with the player and if the player is slinging, then makes it be able to collider
         if (collision.gameObject.CompareTag("Player") && playerController.slinging)
         {
             collided = true;
@@ -41,12 +42,11 @@ public class EnemyController : MonoBehaviour
 
         if (collided && collision.gameObject.CompareTag("Enemy"))
         {
-            smokeEffect.SetTrigger("smoke");
-            Vector2 direction = collision.transform.position - transform.position;
-            collision.rigidbody.AddForce(collateralForce * direction.normalized, ForceMode2D.Impulse);
+            Vector2 collisionDirection = collision.transform.position - transform.position;
+            collision.rigidbody.AddForce(collateralForce * collisionDirection.normalized, ForceMode2D.Impulse);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.layer == 18)
+        else if (collision.gameObject.layer == enviornmentLayer)
         {
             smokeEffect.SetTrigger("smoke");
             Destroy(gameObject,.3f);
