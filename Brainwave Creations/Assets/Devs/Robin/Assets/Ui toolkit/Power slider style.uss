@@ -3,12 +3,13 @@
 }
 
 #PowerSlider #unity-drag-container {
-    margin-top: 100px;
+    margin-top: 75px;
     margin-bottom: 100px;
     margin-right: 40px;
     margin-left: 40px;
     background-color: rgb(6, 0, 255);
     overflow: hidden;
+    height: 20px;
 }
 
 #PowerSlider #unity-tracker {
